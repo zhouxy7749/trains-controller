@@ -188,7 +188,7 @@ public class MainForm extends JPanel {
 				logs.add(currentTime() + "无效指令");
 			} else {
 				double remainDistance = controller.getRemainDistance();
-				if (remainDistance > 100) {
+				if (remainDistance > 100 && !controller.isStopped()) {
 					controller.skipCurrent();
 					controller.setRemainDistance(remainDistance  + 1000);
 					logs.add(currentTime() + "列车跳停一站，至下站再停车");
