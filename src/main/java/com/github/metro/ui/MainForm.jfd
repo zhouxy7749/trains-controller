@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {comp controlPanel:::p::p, space :::p, comp panel2:::p::p, space :::p, comp panel3:::::x}, seq {par l {comp scrollPane1:::p:880:p, comp label30:::p::p}, space :0:119:x}}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, par l {seq {par l {comp panel2:::p::p, comp panel3:::p::p}, space :p:127:p}, seq t {space :p:9:p, comp controlPanel:::p::p, space :::p, comp label30:::p:38:p, space :p:6:p}}, comp scrollPane1:::p:232:p, space ::53:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq l {comp controlPanel:::p::p, space :::p, comp panel2:::p::p}, seq {par l {comp scrollPane1::l:p:507:p, comp label30::l:p::p}, space s:::p, comp panel3:::p::p}}, space ::131:x}}"
+			"$verticalGroup": "par l {seq l {space :p:15:p, par t {comp controlPanel:::p::p, comp panel2:::p::p}, space :::p, par l {seq {comp label30:::p:38:p, space :::p, comp scrollPane1:::p:232:p}, comp panel3:::::x}, space ::59:x}}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
@@ -125,8 +125,8 @@ new FormModel {
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {space :p:24:p, par l {comp label6::l:p::p, comp label10::l:p::p, comp label13::l:p::p, comp label15::l:p::p, comp label17::l:p::p}, space :p:97:p, par l {seq {par l {comp label7:::p::p, comp remainDistanceLabel:::p::p, comp currentSpeedLabel::l:p::p}, space :p:51:p, par l {comp label19::l:p::p, comp label8:::p::p, comp label12:::p::p}}, comp nextStation:::p::p, comp finalStation:::p::p}, space :::x}};par l {seq t {space ::238:x, comp label9:::p::p, space ::13:x}}"
-				"$verticalGroup": "par l {seq l {space :p:56:p, par b {comp label6::b:p::p, comp label8::b:p:16:p, comp label7::b:p::p}, space u:::p, par b {comp label10::b:p::p, comp label12::b:p::p, comp remainDistanceLabel::b:p::p}, space u:::p, par b {comp label13::b:p::p, comp nextStation::b:p::p}, space u:::p, par b {comp label15::b:p::p, comp finalStation::b:p::p}, space u:::p, par b {comp label17::b:p::p, comp label19::b:p::p, comp currentSpeedLabel::b:p::p}, space ::33:x}};par l {seq t {space ::142:x, comp label9:::p:0:p, space ::75:x}}"
+				"$horizontalGroup": "par l {seq l {space :p:24:p, par l {comp label6::l:p::p, comp label10::l:p::p, comp label13::l:p::p, comp label15::l:p::p, comp label17::l:p::p}, space :p:97:p, par l {seq {par l {comp label7:::p::p, comp remainDistanceLabel:::p::p, comp currentSpeedLabel::l:p::p}, space :p:51:p, par l {comp label19::l:p::p, comp label8:::p::p, comp label12:::p::p}}, comp nextStation:::p::p, comp finalStation:::p::p}, space ::106:x}};par l {seq t {space ::238:x, comp label9:::p::p, space ::113:x}}"
+				"$verticalGroup": "par l {seq l {space :p:56:p, par b {comp label6::b:p::p, comp label8::b:p:16:p, comp label7::b:p::p}, space u:::p, par b {comp label10::b:p::p, comp label12::b:p::p, comp remainDistanceLabel::b:p::p}, space u:::p, par b {comp label13::b:p::p, comp nextStation::b:p::p}, space u:::p, par b {comp label15::b:p::p, comp finalStation::b:p::p}, space u:::p, par b {comp label17::b:p::p, comp label19::b:p::p, comp currentSpeedLabel::b:p::p}, space ::31:x}};par l {seq t {space ::142:x, comp label9:::p:0:p, space ::73:x}}"
 			} ) {
 				name: "panel2"
 				add( new FormComponent( "javax.swing.JLabel" ) {
@@ -187,8 +187,8 @@ new FormModel {
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq t {par l {seq l {space :6:6:p, comp label20:::p::p, space :::x}, seq {space ::14:x, par t {seq t {comp neutLabel:::p::p, space ::13:x, comp label24:1::p::p}, seq t {comp fwdLabel:::p::p, space :::x, comp label22:1::p::p}, seq t {comp revLabel:::p::p, space :::x, comp label23:1::p::p}}, space :p:78:p}}, par l {seq {par t {comp atoLabel:::p::p, comp atpLabel:::p::p, comp iatpLabel:::p::p, comp rmLabel:::p::p, comp atbLabel:::p::p}, space :::p, par l {comp label25::l:p::p, comp label26::l:p::p, comp label27::l:p::p, comp label28::l:p::p, comp label29::l:p::p}}, comp label21:::p::p}}}"
-				"$verticalGroup": "par l {seq l {space :p:27:p, par b {comp label20::b:p::p, comp label21::b:p::p}, par l {seq {space :p:18:p, par b {comp label25::b:p::p, comp label22::b:p::p, comp atoLabel::b:p::p}}, seq l {space s:::p, comp fwdLabel:::p::p}}, space u:::p, par b {comp label26::b:p::p, comp label23::b:p::p, comp revLabel::b:p::p, comp atpLabel::b:p::p}, space u:::p, par b {comp label27::b:p::p, comp label24::b:p::p, comp neutLabel::b:p::p, comp iatpLabel::b:p::p}, space :p:12:p, par b {comp label28::b:p::p, comp rmLabel::b:p::p}, space u:::p, par b {comp label29::b:p::p, comp atbLabel::b:p::p}, space ::28:x}}"
+				"$horizontalGroup": "par l {seq l {space :p:32:p, par l {seq l {comp neutLabel:::p::p, space :::p, comp label24:1::p::p}, seq l {comp revLabel:::p::p, space :::p, comp label23:1::p::p}, comp label20::l:p::p, seq l {comp fwdLabel:::p::p, space :::p, comp label22:::p:144:p}}, space :::p, par l {seq {par t {comp atpLabel:::p::p, comp iatpLabel:::p::p, comp rmLabel:::p::p, comp atbLabel:::p::p, comp atoLabel::t:p::p}, space :::p, par l {comp label27::l:p::p, comp label28::l:p::p, comp label29::l:p::p, comp label26::l:p::p, comp label25:::p::p}}, comp label21:::p::p}, space ::59:x}}"
+				"$verticalGroup": "par l {seq l {space :p:33:p, par b {comp label20::b:p::p, comp label21::b:p::p}, space :p:28:p, par b {comp fwdLabel::b:p::p, comp label22::b:p::p, comp atoLabel::b:p::p, comp label25::b:p::p}, space u:::p, par l {par b {comp revLabel::b:p::p, comp atpLabel::b:p::p, comp label23::b:p:16:p}, comp label26::l:p::p}, space u:::p, par b {comp label27::b:p::p, comp neutLabel::b:p::p, comp iatpLabel::b:p::p, comp label24::b:p::p}, space :p:12:p, par b {comp label28::b:p::p, comp rmLabel::b:p::p}, space u:::p, par b {comp label29::b:p::p, comp atbLabel::b:p::p}, space :::x}}"
 			} ) {
 				name: "panel3"
 				add( new FormComponent( "javax.swing.JLabel" ) {

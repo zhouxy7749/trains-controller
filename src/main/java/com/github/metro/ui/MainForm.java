@@ -34,21 +34,39 @@ public class MainForm extends JPanel {
 
 	private void buttonActionPerformed(ActionEvent e) {
 		List<String> logs = getLogs();
+				TrainsController controller = TrainsController.getInstance();
 		if (e.getActionCommand() == "发车") {
-			logs.add(currentTime() + "发车条件满足，列车发车");
-			TrainsController controller = TrainsController.getInstance();
-			controller.autoPilot(currentSpeedLabel, remainDistanceLabel, nextStation,
-					logList);
-			finalStation.setText(controller.getFinalStation());
-			nextStation.setText(controller.getNextStation());
-			fwdLabel.setIcon(Lights.on());
-			atoLabel.setIcon(Lights.on());
-
+			if (controller.isEmergenceBraking() || controller.isOnHold()) {
+				logs.add(currentTime() + "无效指令");
+			}
+			else {
+				logs.add(currentTime() + "发车条件满足，列车发车");
+				if (!controller.isTimerStarted()) {
+					controller.autoPilot(currentSpeedLabel, remainDistanceLabel,
+							nextStation, logList);
+				}
+				controller.setSpeedUp(true);
+				controller.setSpeedDown(false);
+				finalStation.setText(controller.getFinalStation());
+				nextStation.setText(controller.getNextStation());
+				fwdLabel.setIcon(Lights.on());
+				atoLabel.setIcon(Lights.on());
+			}
 		}
 
 		if (e.getActionCommand() == "车门状态信号丢失") {
 			logs.add(currentTime() + "启动紧急制动，并向ATS发送告警信息");
 			TrainsController.getInstance().setLostSignal(true);
+		}
+
+		if (e.getActionCommand() == "紧急制动") {
+			logs.add(currentTime() + "启动紧急制动，并向ATS发送告警信息");
+			TrainsController.getInstance().setEmergenceBraking(true);
+		}
+
+		if (e.getActionCommand() == "列车紧急制动复位") {
+			logs.add(currentTime() + "紧急制动已复位");
+			TrainsController.getInstance().setEmergenceBraking(false);
 		}
 
 		if (e.getActionCommand() == "车载控制器失去电源") {
@@ -107,6 +125,39 @@ public class MainForm extends JPanel {
 		if (e.getActionCommand() == "停车") {
 			logs.add(currentTime() + "列车正常停车，ATP防护");
 			fwdLabel.setIcon(Lights.off());
+		}
+
+		if (e.getActionCommand() == "扣车") {
+			controller.setOnHold(true);
+			if (controller.isStopped()) {
+				logs.add(currentTime() + "站内停车");
+			}
+			else {
+				logs.add(currentTime() + "行至下一站停车");
+			}
+		}
+
+		if (e.getActionCommand() == "撤销扣车") {
+			if (controller.isOnHold()) {
+				controller.setOnHold(false);
+				logs.add(currentTime() + "已撤销扣车，列车将会正常启动");
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
+		}
+
+		if (e.getActionCommand() == "跳停") {
+			double remainDistance = controller.getRemainDistance();
+			if (remainDistance > 100) {
+				controller.skipCurrent();
+				controller.setRemainDistance(remainDistance  + 1000);
+				logs.add(currentTime() + "列车跳停一站，至下站再停车");
+				controller.setSpeedUp(true);
+				controller.setSpeedDown(false);
+				nextStation.setText(controller.getNextStation());
+			} else {
+				logs.add(currentTime() + "列车停站，忽略跳停");
+			}
 		}
 
 		if (e.getActionCommand() == "打开左侧车门") {
@@ -475,7 +526,7 @@ public class MainForm extends JPanel {
 									panel2Layout.createSequentialGroup()
 											.addContainerGap(238, Short.MAX_VALUE)
 											.addComponent(label9)
-											.addContainerGap(13, Short.MAX_VALUE)))
+											.addContainerGap(113, Short.MAX_VALUE)))
 					.addGroup(panel2Layout.createSequentialGroup().addGap(24, 24, 24)
 							.addGroup(panel2Layout.createParallelGroup()
 									.addComponent(label6).addComponent(label10)
@@ -496,7 +547,7 @@ public class MainForm extends JPanel {
 															.addComponent(label12)))
 											.addComponent(nextStation)
 											.addComponent(finalStation))
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
+							.addContainerGap(106, Short.MAX_VALUE)));
 			panel2Layout.setVerticalGroup(panel2Layout.createParallelGroup().addGroup(
 					panel2Layout.createParallelGroup()
 							.addGroup(GroupLayout.Alignment.TRAILING,
@@ -505,7 +556,7 @@ public class MainForm extends JPanel {
 											.addComponent(label9,
 													GroupLayout.PREFERRED_SIZE, 0,
 													GroupLayout.PREFERRED_SIZE)
-											.addContainerGap(75, Short.MAX_VALUE)))
+											.addContainerGap(73, Short.MAX_VALUE)))
 					.addGroup(panel2Layout.createSequentialGroup().addGap(56, 56, 56)
 							.addGroup(panel2Layout
 									.createParallelGroup(GroupLayout.Alignment.BASELINE)
@@ -531,7 +582,7 @@ public class MainForm extends JPanel {
 									.createParallelGroup(GroupLayout.Alignment.BASELINE)
 									.addComponent(label17).addComponent(label19)
 									.addComponent(currentSpeedLabel))
-							.addContainerGap(33, Short.MAX_VALUE)));
+							.addContainerGap(31, Short.MAX_VALUE)));
 		}
 
 		//======== panel3 ========
@@ -569,97 +620,68 @@ public class MainForm extends JPanel {
 
 			GroupLayout panel3Layout = new GroupLayout(panel3);
 			panel3.setLayout(panel3Layout);
-			panel3Layout.setHorizontalGroup(panel3Layout.createParallelGroup()
-					.addGroup(GroupLayout.Alignment.TRAILING,
-							panel3Layout.createSequentialGroup().addGroup(
-									panel3Layout.createParallelGroup().addGroup(
-											panel3Layout.createSequentialGroup()
-													.addGap(6, 6, 6).addComponent(label20)
-													.addPreferredGap(
-															LayoutStyle.ComponentPlacement.RELATED,
-															GroupLayout.DEFAULT_SIZE,
-															Short.MAX_VALUE)).addGroup(
-											panel3Layout.createSequentialGroup()
-													.addContainerGap(14, Short.MAX_VALUE)
-													.addGroup(panel3Layout
-															.createParallelGroup(
-																	GroupLayout.Alignment.TRAILING)
-															.addGroup(panel3Layout
-																	.createSequentialGroup()
-																	.addComponent(
-																			neutLabel)
-																	.addPreferredGap(
-																			LayoutStyle.ComponentPlacement.RELATED,
-																			13,
-																			Short.MAX_VALUE)
-																	.addComponent(
-																			label24))
-															.addGroup(panel3Layout
-																	.createSequentialGroup()
-																	.addComponent(
-																			fwdLabel)
-																	.addPreferredGap(
-																			LayoutStyle.ComponentPlacement.RELATED,
-																			GroupLayout.DEFAULT_SIZE,
-																			Short.MAX_VALUE)
-																	.addComponent(
-																			label22))
-															.addGroup(panel3Layout
-																	.createSequentialGroup()
-																	.addComponent(
-																			revLabel)
-																	.addPreferredGap(
-																			LayoutStyle.ComponentPlacement.RELATED,
-																			GroupLayout.DEFAULT_SIZE,
-																			Short.MAX_VALUE)
-																	.addComponent(
-																			label23)))
-													.addGap(78, 78, 78))).addGroup(
-									panel3Layout.createParallelGroup().addGroup(
-											panel3Layout.createSequentialGroup().addGroup(
-													panel3Layout.createParallelGroup(
-															GroupLayout.Alignment.TRAILING)
-															.addComponent(atoLabel)
-															.addComponent(atpLabel)
-															.addComponent(iatpLabel)
-															.addComponent(rmLabel)
-															.addComponent(atbLabel))
-													.addPreferredGap(
-															LayoutStyle.ComponentPlacement.RELATED)
-													.addGroup(panel3Layout
-															.createParallelGroup()
-															.addComponent(label25)
-															.addComponent(label26)
-															.addComponent(label27)
-															.addComponent(label28)
-															.addComponent(label29)))
-											.addComponent(label21))));
+			panel3Layout.setHorizontalGroup(panel3Layout.createParallelGroup().addGroup(
+					panel3Layout.createSequentialGroup().addGap(32, 32, 32).addGroup(
+							panel3Layout.createParallelGroup().addGroup(
+									panel3Layout.createSequentialGroup()
+											.addComponent(neutLabel).addPreferredGap(
+											LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(label24)).addGroup(
+									panel3Layout.createSequentialGroup()
+											.addComponent(revLabel).addPreferredGap(
+											LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(label23)).addComponent(label20)
+									.addGroup(panel3Layout.createSequentialGroup()
+											.addComponent(fwdLabel).addPreferredGap(
+													LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(label22,
+													GroupLayout.PREFERRED_SIZE, 144,
+													GroupLayout.PREFERRED_SIZE)))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(panel3Layout.createParallelGroup().addGroup(
+									panel3Layout.createSequentialGroup().addGroup(
+											panel3Layout.createParallelGroup(
+													GroupLayout.Alignment.TRAILING)
+													.addComponent(atpLabel)
+													.addComponent(iatpLabel)
+													.addComponent(rmLabel)
+													.addComponent(atbLabel)
+													.addComponent(atoLabel))
+											.addPreferredGap(
+													LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(panel3Layout.createParallelGroup()
+													.addComponent(label27)
+													.addComponent(label28)
+													.addComponent(label29)
+													.addComponent(label26)
+													.addComponent(label25)))
+									.addComponent(label21))
+							.addContainerGap(59, Short.MAX_VALUE)));
 			panel3Layout.linkSize(SwingConstants.HORIZONTAL,
-					new Component[] { label22, label23, label24 });
+					new Component[] { label23, label24 });
 			panel3Layout.setVerticalGroup(panel3Layout.createParallelGroup().addGroup(
-					panel3Layout.createSequentialGroup().addGap(27, 27, 27).addGroup(
+					panel3Layout.createSequentialGroup().addGap(33, 33, 33).addGroup(
 							panel3Layout
 									.createParallelGroup(GroupLayout.Alignment.BASELINE)
 									.addComponent(label20).addComponent(label21))
+							.addGap(28, 28, 28).addGroup(panel3Layout
+							.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(fwdLabel).addComponent(label22)
+							.addComponent(atoLabel).addComponent(label25))
+							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 							.addGroup(panel3Layout.createParallelGroup().addGroup(
-									panel3Layout.createSequentialGroup()
-											.addGap(18, 18, 18).addGroup(panel3Layout
-											.createParallelGroup(
-													GroupLayout.Alignment.BASELINE)
-											.addComponent(label25).addComponent(label22)
-											.addComponent(atoLabel))).addGroup(
-									panel3Layout.createSequentialGroup()
-											.addGap(18, 18, 18).addComponent(fwdLabel)))
+									panel3Layout.createParallelGroup(
+											GroupLayout.Alignment.BASELINE)
+											.addComponent(revLabel).addComponent(atpLabel)
+											.addComponent(label23,
+													GroupLayout.PREFERRED_SIZE, 16,
+													GroupLayout.PREFERRED_SIZE))
+									.addComponent(label26))
 							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 							.addGroup(panel3Layout
 									.createParallelGroup(GroupLayout.Alignment.BASELINE)
-									.addComponent(label26).addComponent(label23)
-									.addComponent(revLabel).addComponent(atpLabel))
-							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-							.addGroup(panel3Layout
-									.createParallelGroup(GroupLayout.Alignment.BASELINE)
-									.addComponent(label27).addComponent(label24)
-									.addComponent(neutLabel).addComponent(iatpLabel))
+									.addComponent(label27).addComponent(neutLabel)
+									.addComponent(iatpLabel).addComponent(label24))
 							.addGap(12, 12, 12).addGroup(panel3Layout
 							.createParallelGroup(GroupLayout.Alignment.BASELINE)
 							.addComponent(label28).addComponent(rmLabel))
@@ -667,7 +689,7 @@ public class MainForm extends JPanel {
 							.addGroup(panel3Layout
 									.createParallelGroup(GroupLayout.Alignment.BASELINE)
 									.addComponent(label29).addComponent(atbLabel))
-							.addContainerGap(28, Short.MAX_VALUE)));
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)));
 		}
 
 		//======== scrollPane1 ========
@@ -690,48 +712,39 @@ public class MainForm extends JPanel {
 										LayoutStyle.ComponentPlacement.RELATED)
 										.addComponent(panel2, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(panel3, GroupLayout.DEFAULT_SIZE,
-												GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)).addGroup(
+												GroupLayout.PREFERRED_SIZE)).addGroup(
 								layout.createSequentialGroup().addGroup(
 										layout.createParallelGroup()
 												.addComponent(scrollPane1,
-														GroupLayout.PREFERRED_SIZE, 880,
+														GroupLayout.PREFERRED_SIZE, 507,
 														GroupLayout.PREFERRED_SIZE)
-												.addComponent(label30))
-										.addGap(0, 119, Short.MAX_VALUE)))
-						.addContainerGap()));
-		layout.setVerticalGroup(layout.createParallelGroup().addGroup(
-				layout.createSequentialGroup().addContainerGap().addGroup(
-						layout.createParallelGroup().addGroup(
-								layout.createSequentialGroup().addGroup(
-										layout.createParallelGroup().addComponent(panel2,
-												GroupLayout.PREFERRED_SIZE,
+												.addComponent(label30)).addGap(18, 18, 18)
+										.addComponent(panel3, GroupLayout.PREFERRED_SIZE,
 												GroupLayout.DEFAULT_SIZE,
-												GroupLayout.PREFERRED_SIZE)
-												.addComponent(panel3,
-														GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE,
-														GroupLayout.PREFERRED_SIZE))
-										.addGap(127, 127, 127))
-								.addGroup(GroupLayout.Alignment.TRAILING,
-										layout.createSequentialGroup().addGap(9, 9, 9)
-												.addComponent(controlPanel,
-														GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE,
-														GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(
-														LayoutStyle.ComponentPlacement.RELATED)
-												.addComponent(label30,
-														GroupLayout.PREFERRED_SIZE, 38,
-														GroupLayout.PREFERRED_SIZE)
-												.addGap(6, 6, 6)))
-						.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 232,
-								GroupLayout.PREFERRED_SIZE)
-						.addContainerGap(53, Short.MAX_VALUE)));
+												GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap(131, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup().addGroup(
+				layout.createSequentialGroup().addGap(15, 15, 15).addGroup(
+						layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(panel2, GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED).addGroup(
+						layout.createParallelGroup().addGroup(
+								layout.createSequentialGroup()
+										.addComponent(label30, GroupLayout.PREFERRED_SIZE,
+												38, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(
+												LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(scrollPane1,
+												GroupLayout.PREFERRED_SIZE, 232,
+												GroupLayout.PREFERRED_SIZE))
+								.addComponent(panel3, GroupLayout.DEFAULT_SIZE,
+										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap(59, Short.MAX_VALUE)));
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
