@@ -1,8 +1,9 @@
 package com.github.metro.util;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.LinkedList;
+
+import static java.util.Calendar.getInstance;
 
 public class LogUtils {
 	private static LinkedList<String> logs = null;
@@ -18,9 +19,8 @@ public class LogUtils {
 	}
 
 	public static String currentTime() {
-		String time = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss ")
-				.format(Calendar.getInstance().getTime());
-		return time;
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ")
+				.format(getInstance().getTime());
 	}
 
 }
