@@ -16,7 +16,7 @@ public class TrainsController {
 	public static final int MAXIMUM_SPEED = 80;
 	public static final double ACCELERATION = 0.8;
 	public static final double DECELERATION = -0.6;
-	public static final int STOPPED_TIME = 15;
+	public static final int STOPPED_TIME = 120;
 	private static TrainsController controller = null;
 	private static Map<Integer, String> stations = null;
 	private static int currentStation = 0;
@@ -27,7 +27,6 @@ public class TrainsController {
 	private boolean emergenceBraking;
 	private boolean timerStarted;
 	private boolean onHold;
-	private int enableDoorDelay;
 	private boolean enableDoor;
 	private boolean enableDoorMode1;
 	private boolean enableDoorMode2;
@@ -84,12 +83,12 @@ public class TrainsController {
 	}
 
 	public void autoPilot(JLabel currentSpeed, JLabel remainDistanceLabel,
-			JLabel nextStation, JList logList) {
+			JLabel nextStation, JList logList, JLabel brakingDistance) {
 		this.timerStarted = true;
 		Timer timer = new Timer();
 		timer.scheduleAtFixedRate(
 				new AutoPilotTimerTask(currentSpeed, remainDistanceLabel, nextStation,
-						logList), new Date(), 1000);
+						logList, brakingDistance), new Date(), 1000);
 	}
 
 	public double getRemainDistance() {
@@ -185,20 +184,27 @@ public class TrainsController {
 		private final JLabel remainDistanceLabel;
 		private final JLabel nextStation;
 		private final JList logList;
+		private final JLabel brakingDistance;
 
 		public AutoPilotTimerTask(JLabel currentSpeedLabel, JLabel remainDistanceLabel,
-				JLabel nextStation, JList logList) {
+				JLabel nextStation, JList logList, JLabel brakingDistance) {
 
 			this.currentSpeedLabel = currentSpeedLabel;
 			this.remainDistanceLabel = remainDistanceLabel;
 			this.nextStation = nextStation;
 			this.logList = logList;
+			this.brakingDistance = brakingDistance;
 		}
 
 		@Override public void run() {
 			remainDistanceLabel.setText(number(remainDistance));
 			currentSpeedLabel
 					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
+			if (currentSpeedMetersPerSec > 0) {
+				brakingDistance.setText("411.52");
+			} else {
+				brakingDistance.setText("0");
+			}
 			stopTrainIfNeeded();
 			enableDoorIfNeeded();
 

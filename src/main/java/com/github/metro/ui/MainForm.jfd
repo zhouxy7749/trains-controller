@@ -125,8 +125,8 @@ new FormModel {
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq l {space :p:24:p, par l {comp label6::l:p::p, comp label10::l:p::p, comp label13::l:p::p, comp label15::l:p::p, comp label17::l:p::p}, space :p:97:p, par l {seq {par l {comp label7:::p::p, comp remainDistanceLabel:::p::p, comp currentSpeedLabel::l:p::p}, space :p:51:p, par l {comp label19::l:p::p, comp label8:::p::p, comp label12:::p::p}}, comp nextStation:::p::p, comp finalStation:::p::p}, space ::106:x}};par l {seq t {space ::238:x, comp label9:::p::p, space ::113:x}}"
-				"$verticalGroup": "par l {seq l {space :p:56:p, par b {comp label6::b:p::p, comp label8::b:p:16:p, comp label7::b:p::p}, space u:::p, par b {comp label10::b:p::p, comp label12::b:p::p, comp remainDistanceLabel::b:p::p}, space u:::p, par b {comp label13::b:p::p, comp nextStation::b:p::p}, space u:::p, par b {comp label15::b:p::p, comp finalStation::b:p::p}, space u:::p, par b {comp label17::b:p::p, comp label19::b:p::p, comp currentSpeedLabel::b:p::p}, space ::31:x}};par l {seq t {space ::142:x, comp label9:::p:0:p, space ::73:x}}"
+				"$horizontalGroup": "par l {seq l {space :p:24:p, par l {comp label6::l:p::p, comp label10::l:p::p, comp label13::l:p::p, comp label15::l:p::p, comp label17::l:p::p}, space :p:97:p, par l {seq {par l {comp brakingDistance:::p::p, comp remainDistanceLabel:::p::p, comp currentSpeedLabel::l:p::p}, space :p:51:p, par l {comp label19::l:p::p, comp label8:::p::p, comp label12:::p::p}}, comp nextStation:::p::p, comp finalStation:::p::p}, space ::106:x}};par l {seq t {space ::238:x, comp label9:::p::p, space ::113:x}}"
+				"$verticalGroup": "par l {seq l {space :p:56:p, par b {comp label6::b:p::p, comp label8::b:p:16:p, comp brakingDistance::b:p::p}, space u:::p, par b {comp label10::b:p::p, comp label12::b:p::p, comp remainDistanceLabel::b:p::p}, space u:::p, par b {comp label13::b:p::p, comp nextStation::b:p::p}, space u:::p, par b {comp label15::b:p::p, comp finalStation::b:p::p}, space u:::p, par b {comp label17::b:p::p, comp label19::b:p::p, comp currentSpeedLabel::b:p::p}, space ::31:x}};par l {seq t {space ::142:x, comp label9:::p:0:p, space ::73:x}}"
 			} ) {
 				name: "panel2"
 				add( new FormComponent( "javax.swing.JLabel" ) {
@@ -134,8 +134,8 @@ new FormModel {
 					"text": "停车距离"
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label7"
-					"text": "1200"
+					name: "brakingDistance"
+					"text": "0"
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label8"
@@ -163,7 +163,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "nextStation"
-					"text": "东直门"
+					"text": "近江站"
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label15"
@@ -171,7 +171,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "finalStation"
-					"text": "天安门"
+					"text": "闸弄口站"
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label17"
