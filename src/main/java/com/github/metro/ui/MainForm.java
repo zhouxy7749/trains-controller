@@ -53,6 +53,7 @@ public class MainForm extends JPanel {
 				fwdLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.on());
 				rmLabel.setIcon(Lights.off());
+				atpLabel.setIcon(Lights.off());
 				revLabel.setIcon(Lights.off());
 			}
 		}
@@ -89,11 +90,12 @@ public class MainForm extends JPanel {
 		}
 
 		if (e.getActionCommand() == "车载控制器失去电源") {
-			if (controller.isLostSignal()) {
+			if (controller.isLostSignal() || controller.isStopped()) {
 				logs.add(currentTime() + "无效指令");
 			} else {
 				controller.setLostPower(true);
 				getLogs().add(currentTime() + "人工驾驶模式，最高速度为17km/h");
+				controller.setAdjustmentOnLostPower(false);
 				rmLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.off());
 			}
@@ -153,6 +155,7 @@ public class MainForm extends JPanel {
 				controller.setSpeedUp(false);
 				controller.setSpeedDown(true);
 				controller.setLostPower(false);
+				rmLabel.setIcon(Lights.off());
 			} else {
 				logs.add(currentTime() + "无效指令");
 			}
@@ -190,6 +193,7 @@ public class MainForm extends JPanel {
 					logs.add(currentTime() + "列车跳停一站，至下站再停车");
 					controller.setSpeedUp(true);
 					controller.setSpeedDown(false);
+					remainDistanceLabel.setText(String.valueOf(controller.getRemainDistance()));
 					nextStation.setText(controller.getNextStation());
 				} else {
 					logs.add(currentTime() + "列车停站，忽略跳停");

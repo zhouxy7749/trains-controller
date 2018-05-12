@@ -265,6 +265,7 @@ public class TrainsController {
 				currentSpeedMetersPerSec = (currentSpeedMetersPerSec + DECELERATION);
 				if (currentSpeedMetersPerSec <= 0) {
 					currentSpeedMetersPerSec = 0;
+					stopped = true;
 					if (remainDistance > 0 && remainDistance < 10) {
 						currentSpeedMetersPerSec = 0.278;
 						remainDistance = Math.abs(remainDistance - 1);
@@ -276,7 +277,6 @@ public class TrainsController {
 								+ getCurrentStation());
 						nextStation.setText(getNextStation());
 						getLogs().add(LogUtils.currentTime() + "列车停车，车门自动打开");
-						stopped = true;
 					}
 				}
 			}
@@ -308,7 +308,7 @@ public class TrainsController {
 
 		private void reverseAtTwo() {
 			currentSpeedMetersPerSec = 0.556;
-			remainDistance = remainDistance + 0.556;
+			remainDistance = remainDistance + 2;
 			if (remainDistance >= 1000) {
 				remainDistance = 1000;
 				currentSpeedMetersPerSec = 0;
@@ -320,7 +320,7 @@ public class TrainsController {
 
 		private void reverseAtOne() {
 			currentSpeedMetersPerSec = 0.278;
-			remainDistance = remainDistance + 0.278;
+			remainDistance = remainDistance + 1;
 			if (remainDistance >= 1000) {
 				remainDistance = 1000;
 				currentSpeedMetersPerSec = 0;
