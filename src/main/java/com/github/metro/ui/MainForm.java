@@ -36,7 +36,8 @@ public class MainForm extends JPanel {
 		List<String> logs = getLogs();
 				TrainsController controller = TrainsController.getInstance();
 		if (e.getActionCommand() == "发车") {
-			if (controller.isEmergenceBraking() || controller.isOnHold()) {
+			if (controller.isEmergenceBraking() || controller.isOnHold() ||
+					controller.isLostSignal() || controller.isLostPower()) {
 				logs.add(currentTime() + "无效指令");
 			}
 			else {
@@ -51,80 +52,110 @@ public class MainForm extends JPanel {
 				nextStation.setText(controller.getNextStation());
 				fwdLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.on());
+				rmLabel.setIcon(Lights.off());
+				revLabel.setIcon(Lights.off());
 			}
 		}
 
 		if (e.getActionCommand() == "车门状态信号丢失") {
 			logs.add(currentTime() + "启动紧急制动，并向ATS发送告警信息");
-			TrainsController.getInstance().setLostSignal(true);
+			controller.setLostSignal(true);
+		}
+
+		if (e.getActionCommand() == "开门使能信号解除1") {
+			if (controller.isLostSignal()) {
+				controller.setEnableDoorMode1(true);
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
+		}
+
+		if (e.getActionCommand() == "开门使能信号解除2") {
+			if (controller.isLostSignal()) {
+				controller.setEnableDoorMode2(true);
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
 		}
 
 		if (e.getActionCommand() == "紧急制动") {
 			logs.add(currentTime() + "启动紧急制动，并向ATS发送告警信息");
-			TrainsController.getInstance().setEmergenceBraking(true);
+			controller.setEmergenceBraking(true);
 		}
 
 		if (e.getActionCommand() == "列车紧急制动复位") {
 			logs.add(currentTime() + "紧急制动已复位");
-			TrainsController.getInstance().setEmergenceBraking(false);
+			controller.setEmergenceBraking(false);
 		}
 
 		if (e.getActionCommand() == "车载控制器失去电源") {
-			TrainsController.getInstance().setLostPower(true);
-			getLogs().add(currentTime() + "人工驾驶模式，最高速度为17km/h");
-			rmLabel.setIcon(Lights.on());
+			if (controller.isLostSignal()) {
+				logs.add(currentTime() + "无效指令");
+			} else {
+				controller.setLostPower(true);
+				getLogs().add(currentTime() + "人工驾驶模式，最高速度为17km/h");
+				rmLabel.setIcon(Lights.on());
+				atoLabel.setIcon(Lights.off());
+			}
 		}
 
 		if (e.getActionCommand() == "轮径校准") {
-			getLogs().add(currentTime() + "轮径校准，最高速度为20km/h");
-			TrainsController.getInstance().setAdjustmentOnLostPower(true);
+			if (controller.isLostPower()) {
+				logs.add(currentTime() + "轮径校准，最高速度为20km/h");
+				controller.setAdjustmentOnLostPower(true);
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
 		}
 
 		if (e.getActionCommand() == "对位停车控制失效") {
-			if (TrainsController.getInstance().isStopped()) {
-				getLogs().add(currentTime() + "列车越过停车点5米");
-				TrainsController.getInstance().setRemainDistance(995);
+			if (controller.isStopped()) {
+				logs.add(currentTime() + "列车越过停车点5米");
+				controller.setRemainDistance(995);
 			}
 			else {
-				getLogs().add(currentTime() + "列车尚未停车");
+				logs.add(currentTime() + "列车尚未停车");
 			}
 		}
 
 		if (e.getActionCommand() == "倒车1") {
-			if (TrainsController.getInstance().isStopped()) {
-				getLogs().add(currentTime() + "列车以1km/h速度倒车");
+			if (controller.isStopped()) {
+				logs.add(currentTime() + "列车以1km/h速度倒车");
 				revLabel.setIcon(Lights.on());
 				fwdLabel.setIcon(Lights.off());
 				atpLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.off());
-				TrainsController.getInstance().setReverseAtOne(true);
-				TrainsController.getInstance().setReverseAtTwo(false);
-
+				controller.setReverseAtOne(true);
+				controller.setReverseAtTwo(false);
 			}
 			else {
-				getLogs().add(currentTime() + "无效指令");
+				logs.add(currentTime() + "无效指令");
 			}
 		}
 
 		if (e.getActionCommand() == "倒车2") {
-			if (TrainsController.getInstance().isStopped()) {
-				getLogs().add(currentTime() + "列车以2km/h速度倒车");
+			if (controller.isStopped()) {
+				logs.add(currentTime() + "列车以2km/h速度倒车");
 				revLabel.setIcon(Lights.on());
 				fwdLabel.setIcon(Lights.off());
 				atpLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.off());
-				TrainsController.getInstance().setReverseAtOne(false);
-				TrainsController.getInstance().setReverseAtTwo(true);
-
+				controller.setReverseAtOne(false);
+				controller.setReverseAtTwo(true);
 			}
 			else {
-				getLogs().add(currentTime() + "无效指令");
+				logs.add(currentTime() + "无效指令");
 			}
 		}
 
 		if (e.getActionCommand() == "停车") {
-			logs.add(currentTime() + "列车正常停车，ATP防护");
-			fwdLabel.setIcon(Lights.off());
+			if (controller.isLostPower()) {
+				controller.setSpeedUp(false);
+				controller.setSpeedDown(true);
+				controller.setLostPower(false);
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
 		}
 
 		if (e.getActionCommand() == "扣车") {
@@ -147,16 +178,22 @@ public class MainForm extends JPanel {
 		}
 
 		if (e.getActionCommand() == "跳停") {
-			double remainDistance = controller.getRemainDistance();
-			if (remainDistance > 100) {
-				controller.skipCurrent();
-				controller.setRemainDistance(remainDistance  + 1000);
-				logs.add(currentTime() + "列车跳停一站，至下站再停车");
-				controller.setSpeedUp(true);
-				controller.setSpeedDown(false);
-				nextStation.setText(controller.getNextStation());
+
+			if (controller.isEmergenceBraking() || controller.isOnHold() ||
+					controller.isLostSignal() || controller.isLostPower()) {
+				logs.add(currentTime() + "无效指令");
 			} else {
-				logs.add(currentTime() + "列车停站，忽略跳停");
+				double remainDistance = controller.getRemainDistance();
+				if (remainDistance > 100) {
+					controller.skipCurrent();
+					controller.setRemainDistance(remainDistance  + 1000);
+					logs.add(currentTime() + "列车跳停一站，至下站再停车");
+					controller.setSpeedUp(true);
+					controller.setSpeedDown(false);
+					nextStation.setText(controller.getNextStation());
+				} else {
+					logs.add(currentTime() + "列车停站，忽略跳停");
+				}
 			}
 		}
 
@@ -169,7 +206,7 @@ public class MainForm extends JPanel {
 		}
 
 		if (e.getActionCommand() == "关闭车门") {
-			logs.add(currentTime() + "车门已关闭并锁定");
+			controller.setEnableDoor(true);
 		}
 
 		if (e.getActionCommand() == "打开左侧屏蔽门") {

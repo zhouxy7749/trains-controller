@@ -8,6 +8,7 @@ import java.util.*;
 import java.util.Timer;
 
 import static com.github.metro.util.Display.number;
+import static com.github.metro.util.LogUtils.currentTime;
 import static com.github.metro.util.LogUtils.getLogs;
 
 public class TrainsController {
@@ -26,6 +27,10 @@ public class TrainsController {
 	private boolean emergenceBraking;
 	private boolean timerStarted;
 	private boolean onHold;
+	private int enableDoorDelay;
+	private boolean enableDoor;
+	private boolean enableDoorMode1;
+	private boolean enableDoorMode2;
 
 	public boolean isStopped() {
 		return stopped;
@@ -54,6 +59,7 @@ public class TrainsController {
 	private boolean isLostSignal;
 	private boolean isLostPower;
 	private boolean adjustmentOnLostPower;
+	private int enableDoorCount = 0;
 
 	private TrainsController() {
 	}
@@ -162,6 +168,18 @@ public class TrainsController {
 		return onHold;
 	}
 
+	public void setEnableDoor(boolean enableDoor) {
+		this.enableDoor = enableDoor;
+	}
+
+	public void setEnableDoorMode1(boolean enableDoorMode1) {
+		this.enableDoorMode1 = enableDoorMode1;
+	}
+
+	public void setEnableDoorMode2(boolean enableDoorMode2) {
+		this.enableDoorMode2 = enableDoorMode2;
+	}
+
 	class AutoPilotTimerTask extends TimerTask {
 		private final JLabel currentSpeedLabel;
 		private final JLabel remainDistanceLabel;
@@ -179,8 +197,10 @@ public class TrainsController {
 
 		@Override public void run() {
 			remainDistanceLabel.setText(number(remainDistance));
-			currentSpeedLabel.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
+			currentSpeedLabel
+					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
 			stopTrainIfNeeded();
+			enableDoorIfNeeded();
 
 			if (reverseAtOne) {
 				reverseAtOne();
@@ -194,13 +214,15 @@ public class TrainsController {
 				if (adjustmentOnLostPower) {
 					updateDistanceOnSpeedUp();
 					currentSpeedMetersPerSec = speedUpTo(5.556);
-				}else {
+				}
+				else {
 					updateDistanceOnSpeedDown();
 					currentSpeedMetersPerSec = speedDownTo(4.167);
 				}
 				return;
 			}
-			if (speedUp && toKilometersPerHour(currentSpeedMetersPerSec) < MAXIMUM_SPEED) {
+			if (speedUp
+					&& toKilometersPerHour(currentSpeedMetersPerSec) < MAXIMUM_SPEED) {
 				stopped = false;
 				double tmpSpeed = currentSpeedMetersPerSec + ACCELERATION;
 				if (toKilometersPerHour(tmpSpeed) > 80) {
@@ -208,7 +230,8 @@ public class TrainsController {
 				}
 				currentSpeedMetersPerSec = tmpSpeed;
 				updateDistanceOnSpeedUp();
-			}else {
+			}
+			else {
 				speedUp = false;
 			}
 
@@ -242,26 +265,45 @@ public class TrainsController {
 				currentSpeedMetersPerSec = (currentSpeedMetersPerSec + DECELERATION);
 				if (currentSpeedMetersPerSec <= 0) {
 					currentSpeedMetersPerSec = 0;
-					if (remainDistance > 0 && !emergenceBraking) {
+					if (remainDistance > 0 && remainDistance < 10) {
 						currentSpeedMetersPerSec = 0.278;
 						remainDistance = Math.abs(remainDistance - 1);
 					}
 					if (remainDistance == 0) {
 						remainDistance = 1000;
 						currentStation++;
-						getLogs().add(LogUtils.currentTime() + "列车已到：" + getCurrentStation());
+						getLogs().add(LogUtils.currentTime() + "列车已到："
+								+ getCurrentStation());
 						nextStation.setText(getNextStation());
 						getLogs().add(LogUtils.currentTime() + "列车停车，车门自动打开");
 						stopped = true;
 					}
 				}
-			}else {
+			}
+			else {
 				speedDown = false;
 			}
 
 			remainDistanceLabel.setText(number(remainDistance));
-			currentSpeedLabel.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
+			currentSpeedLabel
+					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
 			logList.setListData(getLogs().toArray());
+		}
+
+		private void enableDoorIfNeeded() {
+			if (enableDoor) {
+				enableDoorCount++;
+				if (enableDoorMode1 && enableDoorCount == 5) {
+					getLogs().add(currentTime() + "车门和屏蔽门关闭并锁定");
+					enableDoor = false;
+					setLostSignal(false);
+				}
+				if (enableDoorMode2 && enableDoorCount == 8) {
+					getLogs().add(currentTime() + "向ATS传送告警信息");
+					enableDoor = false;
+					setLostSignal(false);
+				}
+			}
 		}
 
 		private void reverseAtTwo() {
@@ -317,7 +359,8 @@ public class TrainsController {
 			if (isLostSignal || emergenceBraking) {
 				if (stopped) {
 					stoppedTime = Integer.MAX_VALUE;
-				}else {
+				}
+				else {
 					speedDown = true;
 					speedUp = false;
 				}
@@ -325,7 +368,8 @@ public class TrainsController {
 
 			if (onHold) {
 				stoppedTime = Integer.MAX_VALUE;
-			} else {
+			}
+			else {
 				stoppedTime = STOPPED_TIME;
 			}
 		}
