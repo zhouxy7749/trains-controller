@@ -139,12 +139,14 @@ public class MainForm extends JPanel {
 		if (e.getActionCommand() == "倒车2") {
 			if (controller.isStopped()) {
 				logs.add(currentTime() + "列车以2km/h速度倒车");
+				logs.add(currentTime() + "缓行速度超过允许速度，紧急制动");
 				revLabel.setIcon(Lights.on());
 				fwdLabel.setIcon(Lights.off());
 				atpLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.off());
 				controller.setReverseAtOne(false);
 				controller.setReverseAtTwo(true);
+				controller.setEmergenceBraking(true);
 			}
 			else {
 				logs.add(currentTime() + "无效指令");
@@ -211,6 +213,7 @@ public class MainForm extends JPanel {
 		}
 
 		if (e.getActionCommand() == "关闭车门") {
+			logs.add(currentTime() + "收到开门使能信号解除");
 			controller.setEnableDoor(true);
 		}
 

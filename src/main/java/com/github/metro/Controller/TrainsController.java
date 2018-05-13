@@ -305,7 +305,7 @@ public class TrainsController {
 		private void enableDoorIfNeeded() {
 			if (enableDoor) {
 				enableDoorCount++;
-				if (enableDoorMode1 && enableDoorCount == 5) {
+				if (enableDoorMode1 && enableDoorCount == 6) {
 					resetAfterEnableDoor(currentTime() + "车门和屏蔽门关闭并锁定");
 				}
 				if (enableDoorMode2 && enableDoorCount == 8) {
@@ -319,6 +319,8 @@ public class TrainsController {
 			enableDoor = false;
 			setLostSignal(false);
 			enableDoorCount = 0;
+			enableDoorMode1 = false;
+			enableDoorMode2 = false;
 		}
 
 		private void reverseAtTwo() {
