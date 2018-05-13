@@ -201,7 +201,7 @@ public class TrainsController {
 			currentSpeedLabel
 					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
 			if (currentSpeedMetersPerSec > 0) {
-				brakingDistance.setText("411.52");
+				brakingDistance.setText(number(currentSpeedMetersPerSec*currentSpeedMetersPerSec /2));
 			} else {
 				brakingDistance.setText("0");
 			}
@@ -300,16 +300,19 @@ public class TrainsController {
 			if (enableDoor) {
 				enableDoorCount++;
 				if (enableDoorMode1 && enableDoorCount == 5) {
-					getLogs().add(currentTime() + "车门和屏蔽门关闭并锁定");
-					enableDoor = false;
-					setLostSignal(false);
+					resetAfterEnableDoor(currentTime() + "车门和屏蔽门关闭并锁定");
 				}
 				if (enableDoorMode2 && enableDoorCount == 8) {
-					getLogs().add(currentTime() + "向ATS传送告警信息");
-					enableDoor = false;
-					setLostSignal(false);
+					resetAfterEnableDoor(currentTime() + "向ATS传送告警信息");
 				}
 			}
+		}
+
+		private void resetAfterEnableDoor(String e) {
+			getLogs().add(e);
+			enableDoor = false;
+			setLostSignal(false);
+			enableDoorCount = 0;
 		}
 
 		private void reverseAtTwo() {
