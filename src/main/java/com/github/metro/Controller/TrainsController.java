@@ -200,21 +200,13 @@ public class TrainsController {
 			remainDistanceLabel.setText(number(remainDistance));
 			currentSpeedLabel
 					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
-			if (currentSpeedMetersPerSec > 0) {
-				brakingDistance.setText(number(currentSpeedMetersPerSec*currentSpeedMetersPerSec /2));
-			} else {
-				brakingDistance.setText("0");
-			}
+			brakingDistance.setText(number(currentSpeedMetersPerSec*currentSpeedMetersPerSec /2));
 			stopTrainIfNeeded();
 			enableDoorIfNeeded();
 
-			if (reverseAtOne) {
-				reverseAtOne();
-			}
+			if (reverseAtOne) reverseAtOne();
 
-			if (reverseAtTwo) {
-				reverseAtTwo();
-			}
+			if (reverseAtTwo) reverseAtTwo();
 
 			if (isLostPower) {
 				if (adjustmentOnLostPower) {
