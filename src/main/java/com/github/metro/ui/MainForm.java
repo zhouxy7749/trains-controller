@@ -117,7 +117,7 @@ public class MainForm extends JPanel {
 				controller.setRemainDistance(995);
 			}
 			else {
-				logs.add(currentTime() + "列车尚未停车");
+				logs.add(currentTime() + "无效指令");
 			}
 		}
 
