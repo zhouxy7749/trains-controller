@@ -16,7 +16,7 @@ public class TrainsController {
 	public static final int MAXIMUM_SPEED = 80;
 	public static final double ACCELERATION = 0.8;
 	public static final double DECELERATION = -0.6;
-	public static final int STOPPED_TIME = 120;
+	public static final int STOPPED_TIME = 300;
 	private static TrainsController controller = null;
 	private static Map<Integer, String> stations = null;
 	private static int currentStation = 0;
@@ -30,6 +30,7 @@ public class TrainsController {
 	private boolean enableDoor;
 	private boolean enableDoorMode1;
 	private boolean enableDoorMode2;
+	private boolean stoppedInMiddle;
 
 	public boolean isStopped() {
 		return stopped;
@@ -184,23 +185,23 @@ public class TrainsController {
 		private final JLabel remainDistanceLabel;
 		private final JLabel nextStation;
 		private final JList logList;
-		private final JLabel brakingDistance;
+		private final JLabel brakingDistanceLabel;
 
 		public AutoPilotTimerTask(JLabel currentSpeedLabel, JLabel remainDistanceLabel,
-				JLabel nextStation, JList logList, JLabel brakingDistance) {
+				JLabel nextStation, JList logList, JLabel brakingDistanceLabel) {
 
 			this.currentSpeedLabel = currentSpeedLabel;
 			this.remainDistanceLabel = remainDistanceLabel;
 			this.nextStation = nextStation;
 			this.logList = logList;
-			this.brakingDistance = brakingDistance;
+			this.brakingDistanceLabel = brakingDistanceLabel;
 		}
 
 		@Override public void run() {
 			remainDistanceLabel.setText(number(remainDistance));
 			currentSpeedLabel
 					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
-			brakingDistance.setText(number(currentSpeedMetersPerSec*currentSpeedMetersPerSec /2));
+			brakingDistanceLabel.setText(number(getBrakingDistance()));
 			stopTrainIfNeeded();
 			enableDoorIfNeeded();
 
@@ -228,6 +229,10 @@ public class TrainsController {
 				}
 				currentSpeedMetersPerSec = tmpSpeed;
 				updateDistanceOnSpeedUp();
+				if (stoppedInMiddle && Math.abs(getBrakingDistance() - remainDistance )< 10) {
+					speedUp = false;
+					speedDown = true;
+				}
 			}
 			else {
 				speedUp = false;
@@ -264,6 +269,11 @@ public class TrainsController {
 				if (currentSpeedMetersPerSec <= 0) {
 					currentSpeedMetersPerSec = 0;
 					stopped = true;
+					stoppedInMiddle = false;
+					if (remainDistance > 10) {
+						stoppedInMiddle = true;
+					}
+
 					if (remainDistance > 0 && remainDistance < 10) {
 						currentSpeedMetersPerSec = 0.278;
 						remainDistance = Math.abs(remainDistance - 1);
@@ -286,6 +296,10 @@ public class TrainsController {
 			currentSpeedLabel
 					.setText(number(toKilometersPerHour(currentSpeedMetersPerSec)));
 			logList.setListData(getLogs().toArray());
+		}
+
+		private double getBrakingDistance() {
+			return currentSpeedMetersPerSec * currentSpeedMetersPerSec / 1.2;
 		}
 
 		private void enableDoorIfNeeded() {
