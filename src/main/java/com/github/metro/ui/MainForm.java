@@ -55,6 +55,7 @@ public class MainForm extends JPanel {
 				fwdLabel.setIcon(Lights.on());
 				atoLabel.setIcon(Lights.on());
 				rmLabel.setIcon(Lights.off());
+				controller.setRMmode(false);
 				atpLabel.setIcon(Lights.off());
 				revLabel.setIcon(Lights.off());
 			}
@@ -99,6 +100,7 @@ public class MainForm extends JPanel {
 				getLogs().add(currentTime() + "人工驾驶模式，最高速度为17km/h");
 				controller.setAdjustmentOnLostPower(false);
 				rmLabel.setIcon(Lights.on());
+				controller.setRMmode(true);
 				atoLabel.setIcon(Lights.off());
 			}
 		}
@@ -160,6 +162,7 @@ public class MainForm extends JPanel {
 				controller.setSpeedDown(true);
 				controller.setLostPower(false);
 				rmLabel.setIcon(Lights.off());
+				controller.setRMmode(false);
 			} else {
 				logs.add(currentTime() + "无效指令");
 			}
@@ -219,11 +222,19 @@ public class MainForm extends JPanel {
 		}
 
 		if (e.getActionCommand() == "打开左侧屏蔽门") {
-			logs.add(currentTime() + "车载控制器控制左侧屏蔽门打开");
+			if (controller.isRMmode()) {
+				logs.add(currentTime() + "车载控制器控制左侧屏蔽门打开");
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
 		}
 
 		if (e.getActionCommand() == "打开右侧屏蔽门") {
-			logs.add(currentTime() + "车载控制器控制右侧屏蔽门打开");
+			if (controller.isRMmode()) {
+				logs.add(currentTime() + "车载控制器控制右侧屏蔽门打开");
+			} else {
+				logs.add(currentTime() + "无效指令");
+			}
 		}
 
 		if (e.getActionCommand() == "关闭屏蔽门") {

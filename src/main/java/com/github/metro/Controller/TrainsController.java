@@ -31,6 +31,7 @@ public class TrainsController {
 	private boolean enableDoorMode1;
 	private boolean enableDoorMode2;
 	private boolean stoppedInMiddle;
+	private boolean RMmode;
 
 	public boolean isStopped() {
 		return stopped;
@@ -178,6 +179,14 @@ public class TrainsController {
 
 	public void setEnableDoorMode2(boolean enableDoorMode2) {
 		this.enableDoorMode2 = enableDoorMode2;
+	}
+
+	public void setRMmode(boolean RMmode) {
+		this.RMmode = RMmode;
+	}
+
+	public boolean isRMmode() {
+		return RMmode;
 	}
 
 	class AutoPilotTimerTask extends TimerTask {
