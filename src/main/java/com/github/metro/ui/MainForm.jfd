@@ -4,63 +4,76 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq l {comp controlPanel:::p::p, space :::p, comp panel2:::p::p}, seq {par l {comp scrollPane1::l:p:507:p, comp label30::l:p::p}, space s:::p, comp panel3:::p::p}}, space ::131:x}}"
-			"$verticalGroup": "par l {seq l {space :p:15:p, par t {comp controlPanel:::p::p, comp panel2:::p::p}, space :::p, par l {seq {comp label30:::p:38:p, space :::p, comp scrollPane1:::p:232:p}, comp panel3:::::x}, space ::59:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:15:p, par l {seq {comp controlPanel:::p::p, space :p:49:p, comp panel2:::p::p}, seq {par l {comp scrollPane1:::p:507:p, comp label30:::p::p}, space s:::p, comp panel3:::p::p}}, space ::88:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, par l {seq {comp panel2:::p::p, space :p:79:p, comp panel3:::::x, space :::x}, seq {comp controlPanel::::333:x, space :::p, comp label30:::p:38:p, space u:::p, comp scrollPane1:::p:232:p, space :p:16:p}}}}"
 		} ) {
 			name: "this"
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {seq {par l {seq {space :p:6:p, comp button9:::p::p, space :::p, comp button10:::p::p, space :::p, comp button11:::p::p, space :::p, comp button12:::p::p, space :::p, comp lostPowerBtn2:::p::p}, seq {space :p:6:p, comp button3:2::p::p, space :::p, comp button4:2::p::p, space :::p, comp button5:2::p::p}, seq {space :::p, comp label1:::p::p, space :::p, comp timePanel1:::p::p}, seq {space :p:6:p, comp button1:::p::p, space :::p, comp separator1:::p::p, space :::p, comp button2:::p::p}, seq {space :p:6:p, comp button6:2::p::p, space :::p, comp button7:2::p::p, space :::p, comp lostSingalBtn:::p::p}, seq l {space :::p, comp button13:::p::p, space :::p, comp button14:::p::p, space :::p, comp lostPowerBtn:::p::p}, seq l {space :::p, comp button16:::p::p, space :::p, comp button17:::p::p, space :::p, comp button18:::p::p, space :::p, comp button15:::p::p}}, space ::18:x}}"
-				"$verticalGroup": "par l {seq {par l:::p {comp timePanel1:::::x, comp label1:::::x}, par l {seq {space :p:8:p, par b {comp button1::b:p::p, comp button2::b:p::p}}, seq l {space :::p, comp separator1:::p::p}}, space :p:10:p, par b {comp button4::b:p::p, comp button5::b:p::p, comp button3::b:p::p}, space u:::p, par b {comp button6::b:p::p, comp button7::b:p::p, comp lostSingalBtn::b:p::p}, space :p:9:p, par b {comp button10::b:p::p, comp button11::b:p::p, comp button9::b:p::p, comp button12::b:p::p, comp lostPowerBtn2::b:p::p}, space u:::p, par b {comp button13::b:p::p, comp button14::b:p::p, comp lostPowerBtn::b:p::p}, space ::10:x, par b {comp button16::b:p::p, comp button17::b:p::p, comp button18::b:p::p, comp button15::b:p::p}}}"
+				"$horizontalGroup": "par l {seq {par l {seq l {space :::p, par l {seq l {comp lostPowerBtn:::p::p, space u:::p, comp button15:::p::p}, seq l {comp button6:::p::p, space u:::p, comp button7:2::p::p}}}, seq {space :::p, comp label1:::p::p, space :::p, comp timePanel1:::p::p}, seq {space :p:6:p, comp button1:::p::p, space u:::p, comp button2:::p::p, space u:::p, comp button12:::p::p, space u:::p, comp lostPowerBtn2:::p::p, space :::p, comp separator1:::p::p}, seq l {space :::p, par l {seq {comp button10:::p::p, space u:::p, comp button11:::p::p, space u:::p, comp button9:::p::p}, seq l {comp button3:2::p::p, space :p:12:p, comp button4:2::p::p, space u:::p, comp button5:2::p::p}}}, seq l {space :::p, par l {seq {comp lostSingalBtn:::p::p, space u:::p, comp button13:::p::p, space u:::p, comp button14:::p::p}, seq {comp button16:::p::p, space u:::p, comp button17:::p::p, space u:::p, comp button18:::p::p}}}}, space ::19:x}}"
+				"$verticalGroup": "par l {seq {par l:::p {comp timePanel1:::::x, comp label1:::::x}, par l {seq {space :p:8:p, par b {comp button1::b:p::p, comp button2::b:p::p, comp button12::b:p::p, comp lostPowerBtn2::b:p::p}}, seq l {space :::p, comp separator1:::p::p}}, space :p:10:p, par b {comp button10::b:p::p, comp button11::b:p::p, comp button9::b:p::p}, space :p:12:p, par b {comp button3::b:p::p, comp button4::b:p::p, comp button5::b:p::p}, space u:::p, par b {comp button6::b:p::p, comp button7::b:p::p}, space u:::p, par b {comp lostPowerBtn::b:p::p, comp button15::b:p::p}, space u:::p, par b {comp button16::b:p::p, comp button17::b:p::p, comp button18::b:p::p}, space :::x, par b {comp lostSingalBtn::b:p::p, comp button13::b:p::p, comp button14::b:p::p}}}"
 			} ) {
 				name: "controlPanel"
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button1"
 					"text": "发车"
+					"foreground": new java.awt.Color( 0, 170, 91, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button2"
 					"text": "停车"
+					"foreground": new java.awt.Color( 0, 170, 91, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button3"
 					"text": "打开左侧车门"
+					"foreground": new java.awt.Color( 239, 95, 167, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button4"
 					"text": "打开右侧车门"
+					"foreground": new java.awt.Color( 239, 95, 167, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button5"
 					"text": "关闭车门"
-					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
-				} )
-				add( new FormComponent( "javax.swing.JButton" ) {
-					name: "button6"
-					"text": "打开左侧屏蔽门"
+					"foreground": new java.awt.Color( 239, 95, 167, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button7"
 					"text": "打开右侧屏蔽门"
+					"foreground": new java.awt.Color( 239, 95, 167, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button9"
 					"text": "跳停"
+					"foreground": new java.awt.Color( 0, 162, 155, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button10"
 					"text": "扣车"
+					"foreground": new java.awt.Color( 0, 162, 155, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button11"
 					"text": "撤销扣车"
+					"foreground": new java.awt.Color( 0, 162, 155, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
@@ -76,51 +89,78 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button12"
 					"text": "紧急制动"
+					"foreground": new java.awt.Color( 106, 37, 106, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "lostSingalBtn"
 					"text": "车门状态信号丢失"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button13"
 					"text": "开门使能信号解除1"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button14"
 					"text": "开门使能信号解除2"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "lostPowerBtn"
 					"text": "车载控制器失去电源"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button15"
 					"text": "轮径校准"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button16"
 					"text": "对位停车控制失效"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button17"
 					"text": "倒车1"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "button18"
 					"text": "倒车2"
+					"foreground": new java.awt.Color( 49, 188, 205, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "lostPowerBtn2"
 					"text": "列车紧急制动复位"
+					"foreground": new java.awt.Color( 106, 37, 106, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "button6"
+					"text": "打开左侧屏蔽门"
+					"foreground": new java.awt.Color( 239, 95, 167, 255 )
+					"font": new java.awt.Font( "Open Sans", 1, 13 )
 					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonActionPerformed", true ) )
 				} )
 			} )

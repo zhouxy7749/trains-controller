@@ -4,6 +4,7 @@
 
 package com.github.metro.ui;
 
+import javax.swing.border.*;
 import com.github.metro.Controller.TrainsController;
 import com.github.metro.component.TimePanel;
 import com.github.metro.util.Lights;
@@ -241,7 +242,6 @@ public class MainForm extends JPanel {
 		button3 = new JButton();
 		button4 = new JButton();
 		button5 = new JButton();
-		button6 = new JButton();
 		button7 = new JButton();
 		button9 = new JButton();
 		button10 = new JButton();
@@ -259,6 +259,7 @@ public class MainForm extends JPanel {
 		button17 = new JButton();
 		button18 = new JButton();
 		lostPowerBtn2 = new JButton();
+		button6 = new JButton();
 		panel2 = new JPanel();
 		label6 = new JLabel();
 		brakingDistance = new JLabel();
@@ -302,7 +303,7 @@ public class MainForm extends JPanel {
 		// JFormDesigner evaluation mark
 		setBorder(new javax.swing.border.CompoundBorder(
 			new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-				"", javax.swing.border.TitledBorder.CENTER,
+				"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
 				javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
 				java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
@@ -312,42 +313,56 @@ public class MainForm extends JPanel {
 
 			//---- button1 ----
 			button1.setText("\u53d1\u8f66");
+			button1.setForeground(new Color(0, 170, 91));
+			button1.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button1.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button2 ----
 			button2.setText("\u505c\u8f66");
+			button2.setForeground(new Color(0, 170, 91));
+			button2.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button2.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button3 ----
 			button3.setText("\u6253\u5f00\u5de6\u4fa7\u8f66\u95e8");
+			button3.setForeground(new Color(239, 95, 167));
+			button3.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button3.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button4 ----
 			button4.setText("\u6253\u5f00\u53f3\u4fa7\u8f66\u95e8");
+			button4.setForeground(new Color(239, 95, 167));
+			button4.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button4.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button5 ----
 			button5.setText("\u5173\u95ed\u8f66\u95e8");
+			button5.setForeground(new Color(239, 95, 167));
+			button5.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button5.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button6 ----
-			button6.setText("\u6253\u5f00\u5de6\u4fa7\u5c4f\u853d\u95e8");
-			button6.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button7 ----
 			button7.setText("\u6253\u5f00\u53f3\u4fa7\u5c4f\u853d\u95e8");
+			button7.setForeground(new Color(239, 95, 167));
+			button7.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button7.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button9 ----
 			button9.setText("\u8df3\u505c");
+			button9.setForeground(new Color(0, 162, 155));
+			button9.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button9.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button10 ----
 			button10.setText("\u6263\u8f66");
+			button10.setForeground(new Color(0, 162, 155));
+			button10.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button10.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button11 ----
 			button11.setText("\u64a4\u9500\u6263\u8f66");
+			button11.setForeground(new Color(0, 162, 155));
+			button11.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button11.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- label1 ----
@@ -355,43 +370,69 @@ public class MainForm extends JPanel {
 
 			//---- button12 ----
 			button12.setText("\u7d27\u6025\u5236\u52a8");
+			button12.setForeground(new Color(106, 37, 106));
+			button12.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button12.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- lostSingalBtn ----
 			lostSingalBtn.setText("\u8f66\u95e8\u72b6\u6001\u4fe1\u53f7\u4e22\u5931");
+			lostSingalBtn.setForeground(new Color(49, 188, 205));
+			lostSingalBtn.setFont(new Font("Open Sans", Font.BOLD, 13));
 			lostSingalBtn.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button13 ----
 			button13.setText("\u5f00\u95e8\u4f7f\u80fd\u4fe1\u53f7\u89e3\u96641");
+			button13.setForeground(new Color(49, 188, 205));
+			button13.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button13.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button14 ----
 			button14.setText("\u5f00\u95e8\u4f7f\u80fd\u4fe1\u53f7\u89e3\u96642");
+			button14.setForeground(new Color(49, 188, 205));
+			button14.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button14.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- lostPowerBtn ----
 			lostPowerBtn.setText("\u8f66\u8f7d\u63a7\u5236\u5668\u5931\u53bb\u7535\u6e90");
+			lostPowerBtn.setForeground(new Color(49, 188, 205));
+			lostPowerBtn.setFont(new Font("Open Sans", Font.BOLD, 13));
 			lostPowerBtn.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button15 ----
 			button15.setText("\u8f6e\u5f84\u6821\u51c6");
+			button15.setForeground(new Color(49, 188, 205));
+			button15.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button15.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button16 ----
 			button16.setText("\u5bf9\u4f4d\u505c\u8f66\u63a7\u5236\u5931\u6548");
+			button16.setForeground(new Color(49, 188, 205));
+			button16.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button16.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button17 ----
 			button17.setText("\u5012\u8f661");
+			button17.setForeground(new Color(49, 188, 205));
+			button17.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button17.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- button18 ----
 			button18.setText("\u5012\u8f662");
+			button18.setForeground(new Color(49, 188, 205));
+			button18.setFont(new Font("Open Sans", Font.BOLD, 13));
 			button18.addActionListener(e -> buttonActionPerformed(e));
 
 			//---- lostPowerBtn2 ----
 			lostPowerBtn2.setText("\u5217\u8f66\u7d27\u6025\u5236\u52a8\u590d\u4f4d");
+			lostPowerBtn2.setForeground(new Color(106, 37, 106));
+			lostPowerBtn2.setFont(new Font("Open Sans", Font.BOLD, 13));
 			lostPowerBtn2.addActionListener(e -> buttonActionPerformed(e));
+
+			//---- button6 ----
+			button6.setText("\u6253\u5f00\u5de6\u4fa7\u5c4f\u853d\u95e8");
+			button6.setForeground(new Color(239, 95, 167));
+			button6.setFont(new Font("Open Sans", Font.BOLD, 13));
+			button6.addActionListener(e -> buttonActionPerformed(e));
 
 			GroupLayout controlPanelLayout = new GroupLayout(controlPanel);
 			controlPanel.setLayout(controlPanelLayout);
@@ -400,23 +441,16 @@ public class MainForm extends JPanel {
 					.addGroup(controlPanelLayout.createSequentialGroup()
 						.addGroup(controlPanelLayout.createParallelGroup()
 							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addGap(6, 6, 6)
-								.addComponent(button9)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button10)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button11)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button12)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(lostPowerBtn2))
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addGap(6, 6, 6)
-								.addComponent(button3)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button4)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button5))
+								.addContainerGap()
+								.addGroup(controlPanelLayout.createParallelGroup()
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(lostPowerBtn)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button15))
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(button6)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button7))))
 							.addGroup(controlPanelLayout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(label1)
@@ -425,36 +459,47 @@ public class MainForm extends JPanel {
 							.addGroup(controlPanelLayout.createSequentialGroup()
 								.addGap(6, 6, 6)
 								.addComponent(button1)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(button2)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(button12)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(lostPowerBtn2)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button2))
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addGap(6, 6, 6)
-								.addComponent(button6)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button7)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(lostSingalBtn))
+								.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGroup(controlPanelLayout.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(button13)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button14)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(lostPowerBtn))
+								.addGroup(controlPanelLayout.createParallelGroup()
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(button10)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button11)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button9))
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(button3)
+										.addGap(12, 12, 12)
+										.addComponent(button4)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button5))))
 							.addGroup(controlPanelLayout.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(button16)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button17)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button18)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(button15)))
-						.addContainerGap(18, Short.MAX_VALUE))
+								.addGroup(controlPanelLayout.createParallelGroup()
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(lostSingalBtn)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button13)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button14))
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(button16)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button17)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(button18)))))
+						.addContainerGap(19, Short.MAX_VALUE))
 			);
-			controlPanelLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {button3, button4, button5, button6, button7});
+			controlPanelLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {button3, button4, button5, button7});
 			controlPanelLayout.setVerticalGroup(
 				controlPanelLayout.createParallelGroup()
 					.addGroup(controlPanelLayout.createSequentialGroup()
@@ -466,38 +511,40 @@ public class MainForm extends JPanel {
 								.addGap(8, 8, 8)
 								.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 									.addComponent(button1)
-									.addComponent(button2)))
+									.addComponent(button2)
+									.addComponent(button12)
+									.addComponent(lostPowerBtn2)))
 							.addGroup(controlPanelLayout.createSequentialGroup()
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 						.addGap(10, 10, 10)
 						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(button10)
+							.addComponent(button11)
+							.addComponent(button9))
+						.addGap(12, 12, 12)
+						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(button3)
 							.addComponent(button4)
-							.addComponent(button5)
-							.addComponent(button3))
+							.addComponent(button5))
 						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 							.addComponent(button6)
-							.addComponent(button7)
-							.addComponent(lostSingalBtn))
-						.addGap(9, 9, 9)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(button10)
-							.addComponent(button11)
-							.addComponent(button9)
-							.addComponent(button12)
-							.addComponent(lostPowerBtn2))
+							.addComponent(button7))
 						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(button13)
-							.addComponent(button14)
-							.addComponent(lostPowerBtn))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+							.addComponent(lostPowerBtn)
+							.addComponent(button15))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 							.addComponent(button16)
 							.addComponent(button17)
-							.addComponent(button18)
-							.addComponent(button15)))
+							.addComponent(button18))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+							.addComponent(lostSingalBtn)
+							.addComponent(button13)
+							.addComponent(button14)))
 			);
 		}
 
@@ -742,7 +789,7 @@ public class MainForm extends JPanel {
 					.addGroup(layout.createParallelGroup()
 						.addGroup(layout.createSequentialGroup()
 							.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGap(49, 49, 49)
 							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(layout.createSequentialGroup()
 							.addGroup(layout.createParallelGroup()
@@ -750,23 +797,25 @@ public class MainForm extends JPanel {
 								.addComponent(label30))
 							.addGap(18, 18, 18)
 							.addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(131, Short.MAX_VALUE))
+					.addContainerGap(88, Short.MAX_VALUE))
 		);
 		layout.setVerticalGroup(
 			layout.createParallelGroup()
 				.addGroup(layout.createSequentialGroup()
-					.addGap(15, 15, 15)
-					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-						.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+					.addContainerGap()
 					.addGroup(layout.createParallelGroup()
 						.addGroup(layout.createSequentialGroup()
-							.addComponent(label30, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(79, 79, 79)
+							.addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(layout.createSequentialGroup()
+							.addComponent(controlPanel, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE))
-						.addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addContainerGap(59, Short.MAX_VALUE))
+							.addComponent(label30, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
+							.addGap(16, 16, 16))))
 		);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
@@ -779,7 +828,6 @@ public class MainForm extends JPanel {
 	private JButton button3;
 	private JButton button4;
 	private JButton button5;
-	private JButton button6;
 	private JButton button7;
 	private JButton button9;
 	private JButton button10;
@@ -797,6 +845,7 @@ public class MainForm extends JPanel {
 	private JButton button17;
 	private JButton button18;
 	private JButton lostPowerBtn2;
+	private JButton button6;
 	private JPanel panel2;
 	private JLabel label6;
 	private JLabel brakingDistance;
