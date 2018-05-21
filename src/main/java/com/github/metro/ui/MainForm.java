@@ -314,7 +314,7 @@ public class MainForm extends JPanel {
 		// JFormDesigner evaluation mark
 		setBorder(new javax.swing.border.CompoundBorder(
 			new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-				"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+				"", javax.swing.border.TitledBorder.CENTER,
 				javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
 				java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
@@ -498,7 +498,7 @@ public class MainForm extends JPanel {
 								.addGroup(controlPanelLayout.createParallelGroup()
 									.addGroup(controlPanelLayout.createSequentialGroup()
 										.addComponent(lostSingalBtn)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addGap(12, 12, 12)
 										.addComponent(button13)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 										.addComponent(button14))
@@ -508,7 +508,7 @@ public class MainForm extends JPanel {
 										.addComponent(button17)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 										.addComponent(button18)))))
-						.addContainerGap(19, Short.MAX_VALUE))
+						.addContainerGap(50, Short.MAX_VALUE))
 			);
 			controlPanelLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {button3, button4, button5, button7});
 			controlPanelLayout.setVerticalGroup(
@@ -551,11 +551,16 @@ public class MainForm extends JPanel {
 							.addComponent(button16)
 							.addComponent(button17)
 							.addComponent(button18))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(lostSingalBtn)
-							.addComponent(button13)
-							.addComponent(button14)))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+						.addGroup(controlPanelLayout.createParallelGroup()
+							.addGroup(controlPanelLayout.createSequentialGroup()
+								.addGap(0, 0, Short.MAX_VALUE)
+								.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+									.addComponent(button13)
+									.addComponent(button14)))
+							.addGroup(controlPanelLayout.createSequentialGroup()
+								.addComponent(lostSingalBtn)
+								.addGap(0, 0, Short.MAX_VALUE))))
 			);
 		}
 
@@ -796,19 +801,22 @@ public class MainForm extends JPanel {
 		layout.setHorizontalGroup(
 			layout.createParallelGroup()
 				.addGroup(layout.createSequentialGroup()
-					.addGap(15, 15, 15)
 					.addGroup(layout.createParallelGroup()
 						.addGroup(layout.createSequentialGroup()
-							.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(49, 49, 49)
-							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(layout.createSequentialGroup()
+							.addGap(15, 15, 15)
 							.addGroup(layout.createParallelGroup()
 								.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 507, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label30))
+								.addComponent(label30)))
+						.addGroup(layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addGap(18, 18, 18)
+					.addGroup(layout.createParallelGroup()
+						.addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addGroup(layout.createSequentialGroup()
 							.addGap(18, 18, 18)
-							.addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(88, Short.MAX_VALUE))
+							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(59, Short.MAX_VALUE))
 		);
 		layout.setVerticalGroup(
 			layout.createParallelGroup()
@@ -821,10 +829,11 @@ public class MainForm extends JPanel {
 							.addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(layout.createSequentialGroup()
-							.addComponent(controlPanel, GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
+							.addGap(0, 0, Short.MAX_VALUE)
+							.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(label30, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
 							.addGap(16, 16, 16))))
 		);
