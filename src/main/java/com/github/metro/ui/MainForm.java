@@ -468,7 +468,7 @@ public class MainForm extends JPanel {
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(timePanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addGap(6, 6, 6)
+								.addContainerGap()
 								.addComponent(button1)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
 								.addComponent(button2)
