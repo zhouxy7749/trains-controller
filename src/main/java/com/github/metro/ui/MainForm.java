@@ -592,7 +592,7 @@ public class MainForm extends JPanel {
 			label13.setText("\u4e0b\u4e00\u7ad9");
 
 			//---- nextStation ----
-			nextStation.setText("\u8fd1\u6c5f\u7ad9");
+			nextStation.setText("\u5a7a\u6c5f\u8def\u7ad9");
 
 			//---- label15 ----
 			label15.setText("\u7ec8\u70b9\u7ad9");

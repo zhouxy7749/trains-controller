@@ -203,7 +203,7 @@ new FormModel {
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "nextStation"
-					"text": "近江站"
+					"text": "婺江路站"
 				} )
 				add( new FormComponent( "javax.swing.JLabel" ) {
 					name: "label15"
