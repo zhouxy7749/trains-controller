@@ -246,31 +246,41 @@ public class MainForm extends JPanel {
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-		// Generated using JFormDesigner Evaluation license - Qings Yo
+		// Generated using JFormDesigner Evaluation license - qs
 		controlPanel = new JPanel();
-		button1 = new JButton();
-		button2 = new JButton();
-		button3 = new JButton();
-		button4 = new JButton();
-		button5 = new JButton();
-		button7 = new JButton();
-		button9 = new JButton();
-		button10 = new JButton();
-		button11 = new JButton();
 		label1 = new JLabel();
 		timePanel1 = new TimePanel();
 		separator1 = new JSeparator();
+		panel1 = new JPanel();
+		button1 = new JButton();
+		button2 = new JButton();
+		panel4 = new JPanel();
 		button12 = new JButton();
-		lostSingalBtn = new JButton();
-		button13 = new JButton();
-		button14 = new JButton();
-		lostPowerBtn = new JButton();
-		button15 = new JButton();
+		lostPowerBtn2 = new JButton();
+		panel5 = new JPanel();
+		button3 = new JButton();
+		button4 = new JButton();
+		button6 = new JButton();
+		button7 = new JButton();
+		button5 = new JButton();
+		panel6 = new JPanel();
+		button10 = new JButton();
+		button11 = new JButton();
+		button9 = new JButton();
+		panel7 = new JPanel();
 		button16 = new JButton();
 		button17 = new JButton();
 		button18 = new JButton();
-		lostPowerBtn2 = new JButton();
-		button6 = new JButton();
+		panel8 = new JPanel();
+		lostPowerBtn = new JButton();
+		button15 = new JButton();
+		panel9 = new JPanel();
+		lostSingalBtn = new JButton();
+		button13 = new JButton();
+		button14 = new JButton();
+		scrollPane1 = new JScrollPane();
+		logList = new JList();
+		label30 = new JLabel();
 		panel2 = new JPanel();
 		label6 = new JLabel();
 		brakingDistance = new JLabel();
@@ -305,9 +315,6 @@ public class MainForm extends JPanel {
 		iatpLabel = new JLabel();
 		rmLabel = new JLabel();
 		atbLabel = new JLabel();
-		scrollPane1 = new JScrollPane();
-		logList = new JList();
-		label30 = new JLabel();
 
 		//======== this ========
 
@@ -322,247 +329,410 @@ public class MainForm extends JPanel {
 		//======== controlPanel ========
 		{
 
-			//---- button1 ----
-			button1.setText("\u53d1\u8f66");
-			button1.setForeground(new Color(0, 170, 91));
-			button1.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button1.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button2 ----
-			button2.setText("\u505c\u8f66");
-			button2.setForeground(new Color(0, 170, 91));
-			button2.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button2.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button3 ----
-			button3.setText("\u6253\u5f00\u5de6\u4fa7\u8f66\u95e8");
-			button3.setForeground(new Color(239, 95, 167));
-			button3.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button3.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button4 ----
-			button4.setText("\u6253\u5f00\u53f3\u4fa7\u8f66\u95e8");
-			button4.setForeground(new Color(239, 95, 167));
-			button4.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button4.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button5 ----
-			button5.setText("\u5173\u95ed\u8f66\u95e8");
-			button5.setForeground(new Color(239, 95, 167));
-			button5.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button5.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button7 ----
-			button7.setText("\u6253\u5f00\u53f3\u4fa7\u5c4f\u853d\u95e8");
-			button7.setForeground(new Color(239, 95, 167));
-			button7.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button7.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button9 ----
-			button9.setText("\u8df3\u505c");
-			button9.setForeground(new Color(0, 162, 155));
-			button9.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button9.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button10 ----
-			button10.setText("\u6263\u8f66");
-			button10.setForeground(new Color(0, 162, 155));
-			button10.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button10.addActionListener(e -> buttonActionPerformed(e));
-
-			//---- button11 ----
-			button11.setText("\u64a4\u9500\u6263\u8f66");
-			button11.setForeground(new Color(0, 162, 155));
-			button11.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button11.addActionListener(e -> buttonActionPerformed(e));
-
 			//---- label1 ----
 			label1.setText("\u8f66\u6b21\u53f7: 00001");
 
-			//---- button12 ----
-			button12.setText("\u7d27\u6025\u5236\u52a8");
-			button12.setForeground(new Color(106, 37, 106));
-			button12.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button12.addActionListener(e -> buttonActionPerformed(e));
+			//======== panel1 ========
+			{
+				panel1.setBorder(new BevelBorder(BevelBorder.LOWERED));
 
-			//---- lostSingalBtn ----
-			lostSingalBtn.setText("\u8f66\u95e8\u72b6\u6001\u4fe1\u53f7\u4e22\u5931");
-			lostSingalBtn.setForeground(new Color(49, 188, 205));
-			lostSingalBtn.setFont(new Font("Open Sans", Font.BOLD, 13));
-			lostSingalBtn.addActionListener(e -> buttonActionPerformed(e));
+				//---- button1 ----
+				button1.setText("\u53d1\u8f66");
+				button1.setForeground(new Color(0, 170, 91));
+				button1.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button1.addActionListener(e -> buttonActionPerformed(e));
 
-			//---- button13 ----
-			button13.setText("\u5f00\u95e8\u4f7f\u80fd\u4fe1\u53f7\u89e3\u96641");
-			button13.setForeground(new Color(49, 188, 205));
-			button13.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button13.addActionListener(e -> buttonActionPerformed(e));
+				//---- button2 ----
+				button2.setText("\u505c\u8f66");
+				button2.setForeground(new Color(0, 170, 91));
+				button2.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button2.addActionListener(e -> buttonActionPerformed(e));
 
-			//---- button14 ----
-			button14.setText("\u5f00\u95e8\u4f7f\u80fd\u4fe1\u53f7\u89e3\u96642");
-			button14.setForeground(new Color(49, 188, 205));
-			button14.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button14.addActionListener(e -> buttonActionPerformed(e));
+				GroupLayout panel1Layout = new GroupLayout(panel1);
+				panel1.setLayout(panel1Layout);
+				panel1Layout.setHorizontalGroup(
+					panel1Layout.createParallelGroup()
+						.addGroup(panel1Layout.createSequentialGroup()
+							.addGap(22, 22, 22)
+							.addGroup(panel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+								.addComponent(button2)
+								.addComponent(button1))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+				panel1Layout.setVerticalGroup(
+					panel1Layout.createParallelGroup()
+						.addGroup(panel1Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button1)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(button2)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+			}
 
-			//---- lostPowerBtn ----
-			lostPowerBtn.setText("\u8f66\u8f7d\u63a7\u5236\u5668\u5931\u53bb\u7535\u6e90");
-			lostPowerBtn.setForeground(new Color(49, 188, 205));
-			lostPowerBtn.setFont(new Font("Open Sans", Font.BOLD, 13));
-			lostPowerBtn.addActionListener(e -> buttonActionPerformed(e));
+			//======== panel4 ========
+			{
+				panel4.setBorder(new BevelBorder(BevelBorder.LOWERED));
 
-			//---- button15 ----
-			button15.setText("\u8f6e\u5f84\u6821\u51c6");
-			button15.setForeground(new Color(49, 188, 205));
-			button15.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button15.addActionListener(e -> buttonActionPerformed(e));
+				//---- button12 ----
+				button12.setText("\u7d27\u6025\u5236\u52a8");
+				button12.setForeground(new Color(106, 37, 106));
+				button12.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button12.addActionListener(e -> buttonActionPerformed(e));
 
-			//---- button16 ----
-			button16.setText("\u5bf9\u4f4d\u505c\u8f66\u63a7\u5236\u5931\u6548");
-			button16.setForeground(new Color(49, 188, 205));
-			button16.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button16.addActionListener(e -> buttonActionPerformed(e));
+				//---- lostPowerBtn2 ----
+				lostPowerBtn2.setText("\u5217\u8f66\u7d27\u6025\u5236\u52a8\u590d\u4f4d");
+				lostPowerBtn2.setForeground(new Color(106, 37, 106));
+				lostPowerBtn2.setFont(new Font("Open Sans", Font.BOLD, 13));
+				lostPowerBtn2.addActionListener(e -> buttonActionPerformed(e));
 
-			//---- button17 ----
-			button17.setText("\u5012\u8f661");
-			button17.setForeground(new Color(49, 188, 205));
-			button17.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button17.addActionListener(e -> buttonActionPerformed(e));
+				GroupLayout panel4Layout = new GroupLayout(panel4);
+				panel4.setLayout(panel4Layout);
+				panel4Layout.setHorizontalGroup(
+					panel4Layout.createParallelGroup()
+						.addGroup(panel4Layout.createSequentialGroup()
+							.addContainerGap(19, Short.MAX_VALUE)
+							.addGroup(panel4Layout.createParallelGroup()
+								.addGroup(GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
+									.addComponent(lostPowerBtn2)
+									.addGap(17, 17, 17))
+								.addGroup(GroupLayout.Alignment.TRAILING, panel4Layout.createSequentialGroup()
+									.addComponent(button12)
+									.addGap(41, 41, 41))))
+				);
+				panel4Layout.setVerticalGroup(
+					panel4Layout.createParallelGroup()
+						.addGroup(panel4Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button12)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(lostPowerBtn2)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+			}
 
-			//---- button18 ----
-			button18.setText("\u5012\u8f662");
-			button18.setForeground(new Color(49, 188, 205));
-			button18.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button18.addActionListener(e -> buttonActionPerformed(e));
+			//======== panel5 ========
+			{
+				panel5.setBorder(new BevelBorder(BevelBorder.LOWERED));
 
-			//---- lostPowerBtn2 ----
-			lostPowerBtn2.setText("\u5217\u8f66\u7d27\u6025\u5236\u52a8\u590d\u4f4d");
-			lostPowerBtn2.setForeground(new Color(106, 37, 106));
-			lostPowerBtn2.setFont(new Font("Open Sans", Font.BOLD, 13));
-			lostPowerBtn2.addActionListener(e -> buttonActionPerformed(e));
+				//---- button3 ----
+				button3.setText("\u6253\u5f00\u5de6\u4fa7\u8f66\u95e8");
+				button3.setForeground(new Color(239, 95, 167));
+				button3.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button3.addActionListener(e -> buttonActionPerformed(e));
 
-			//---- button6 ----
-			button6.setText("\u6253\u5f00\u5de6\u4fa7\u5c4f\u853d\u95e8");
-			button6.setForeground(new Color(239, 95, 167));
-			button6.setFont(new Font("Open Sans", Font.BOLD, 13));
-			button6.addActionListener(e -> buttonActionPerformed(e));
+				//---- button4 ----
+				button4.setText("\u6253\u5f00\u53f3\u4fa7\u8f66\u95e8");
+				button4.setForeground(new Color(239, 95, 167));
+				button4.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button4.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button6 ----
+				button6.setText("\u6253\u5f00\u5de6\u4fa7\u5c4f\u853d\u95e8");
+				button6.setForeground(new Color(239, 95, 167));
+				button6.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button6.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button7 ----
+				button7.setText("\u6253\u5f00\u53f3\u4fa7\u5c4f\u853d\u95e8");
+				button7.setForeground(new Color(239, 95, 167));
+				button7.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button7.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button5 ----
+				button5.setText("\u5173\u95ed\u8f66\u95e8");
+				button5.setForeground(new Color(239, 95, 167));
+				button5.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button5.addActionListener(e -> buttonActionPerformed(e));
+
+				GroupLayout panel5Layout = new GroupLayout(panel5);
+				panel5.setLayout(panel5Layout);
+				panel5Layout.setHorizontalGroup(
+					panel5Layout.createParallelGroup()
+						.addGroup(panel5Layout.createSequentialGroup()
+							.addContainerGap(15, Short.MAX_VALUE)
+							.addGroup(panel5Layout.createParallelGroup()
+								.addGroup(panel5Layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+									.addComponent(button5)
+									.addComponent(button4))
+								.addComponent(button3, GroupLayout.Alignment.CENTER))
+							.addContainerGap(17, Short.MAX_VALUE))
+						.addGroup(panel5Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button6)
+							.addGap(0, 0, Short.MAX_VALUE))
+						.addGroup(panel5Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button7)
+							.addContainerGap(13, Short.MAX_VALUE))
+				);
+				panel5Layout.setVerticalGroup(
+					panel5Layout.createParallelGroup()
+						.addGroup(panel5Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button3)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+							.addComponent(button4)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+							.addComponent(button6)
+							.addGap(12, 12, 12)
+							.addComponent(button7)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+							.addComponent(button5)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+			}
+
+			//======== panel6 ========
+			{
+				panel6.setBorder(new BevelBorder(BevelBorder.LOWERED));
+
+				//---- button10 ----
+				button10.setText("\u6263\u8f66");
+				button10.setForeground(new Color(0, 162, 155));
+				button10.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button10.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button11 ----
+				button11.setText("\u64a4\u9500\u6263\u8f66");
+				button11.setForeground(new Color(0, 162, 155));
+				button11.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button11.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button9 ----
+				button9.setText("\u8df3\u505c");
+				button9.setForeground(new Color(0, 162, 155));
+				button9.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button9.addActionListener(e -> buttonActionPerformed(e));
+
+				GroupLayout panel6Layout = new GroupLayout(panel6);
+				panel6.setLayout(panel6Layout);
+				panel6Layout.setHorizontalGroup(
+					panel6Layout.createParallelGroup()
+						.addGroup(panel6Layout.createSequentialGroup()
+							.addGap(10, 10, 10)
+							.addGroup(panel6Layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+								.addComponent(button10)
+								.addComponent(button11)
+								.addComponent(button9))
+							.addGap(0, 23, Short.MAX_VALUE))
+				);
+				panel6Layout.setVerticalGroup(
+					panel6Layout.createParallelGroup()
+						.addGroup(panel6Layout.createSequentialGroup()
+							.addComponent(button10)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(button11)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(button9)
+							.addContainerGap(10, Short.MAX_VALUE))
+				);
+			}
+
+			//======== panel7 ========
+			{
+				panel7.setBorder(new BevelBorder(BevelBorder.LOWERED));
+
+				//---- button16 ----
+				button16.setText("\u5bf9\u4f4d\u505c\u8f66\u63a7\u5236\u5931\u6548");
+				button16.setForeground(new Color(49, 188, 205));
+				button16.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button16.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button17 ----
+				button17.setText("\u5012\u8f661");
+				button17.setForeground(new Color(49, 188, 205));
+				button17.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button17.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button18 ----
+				button18.setText("\u5012\u8f662");
+				button18.setForeground(new Color(49, 188, 205));
+				button18.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button18.addActionListener(e -> buttonActionPerformed(e));
+
+				GroupLayout panel7Layout = new GroupLayout(panel7);
+				panel7.setLayout(panel7Layout);
+				panel7Layout.setHorizontalGroup(
+					panel7Layout.createParallelGroup()
+						.addGroup(panel7Layout.createSequentialGroup()
+							.addGroup(panel7Layout.createParallelGroup()
+								.addGroup(panel7Layout.createSequentialGroup()
+									.addGap(49, 49, 49)
+									.addGroup(panel7Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+										.addComponent(button18)
+										.addComponent(button17)))
+								.addGroup(panel7Layout.createSequentialGroup()
+									.addGap(16, 16, 16)
+									.addComponent(button16)))
+							.addContainerGap(20, Short.MAX_VALUE))
+				);
+				panel7Layout.setVerticalGroup(
+					panel7Layout.createParallelGroup()
+						.addGroup(GroupLayout.Alignment.TRAILING, panel7Layout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(button16)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(button17)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(button18)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+			}
+
+			//======== panel8 ========
+			{
+				panel8.setBorder(new BevelBorder(BevelBorder.LOWERED));
+
+				//---- lostPowerBtn ----
+				lostPowerBtn.setText("\u8f66\u8f7d\u63a7\u5236\u5668\u5931\u53bb\u7535\u6e90");
+				lostPowerBtn.setForeground(new Color(49, 188, 205));
+				lostPowerBtn.setFont(new Font("Open Sans", Font.BOLD, 13));
+				lostPowerBtn.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button15 ----
+				button15.setText("\u8f6e\u5f84\u6821\u51c6");
+				button15.setForeground(new Color(49, 188, 205));
+				button15.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button15.addActionListener(e -> buttonActionPerformed(e));
+
+				GroupLayout panel8Layout = new GroupLayout(panel8);
+				panel8.setLayout(panel8Layout);
+				panel8Layout.setHorizontalGroup(
+					panel8Layout.createParallelGroup()
+						.addGroup(panel8Layout.createSequentialGroup()
+							.addComponent(lostPowerBtn)
+							.addGap(0, 0, Short.MAX_VALUE))
+						.addGroup(panel8Layout.createSequentialGroup()
+							.addGap(28, 28, 28)
+							.addComponent(button15)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+				);
+				panel8Layout.setVerticalGroup(
+					panel8Layout.createParallelGroup()
+						.addGroup(panel8Layout.createSequentialGroup()
+							.addContainerGap(12, Short.MAX_VALUE)
+							.addComponent(lostPowerBtn)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addComponent(button15))
+				);
+			}
+
+			//======== panel9 ========
+			{
+				panel9.setBorder(new BevelBorder(BevelBorder.LOWERED));
+
+				//---- lostSingalBtn ----
+				lostSingalBtn.setText("\u8f66\u95e8\u72b6\u6001\u4fe1\u53f7\u4e22\u5931");
+				lostSingalBtn.setForeground(new Color(49, 188, 205));
+				lostSingalBtn.setFont(new Font("Open Sans", Font.BOLD, 13));
+				lostSingalBtn.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button13 ----
+				button13.setText("\u5f00\u95e8\u4f7f\u80fd\u4fe1\u53f7\u89e3\u96641");
+				button13.setForeground(new Color(49, 188, 205));
+				button13.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button13.addActionListener(e -> buttonActionPerformed(e));
+
+				//---- button14 ----
+				button14.setText("\u5f00\u95e8\u4f7f\u80fd\u4fe1\u53f7\u89e3\u96642");
+				button14.setForeground(new Color(49, 188, 205));
+				button14.setFont(new Font("Open Sans", Font.BOLD, 13));
+				button14.addActionListener(e -> buttonActionPerformed(e));
+
+				GroupLayout panel9Layout = new GroupLayout(panel9);
+				panel9.setLayout(panel9Layout);
+				panel9Layout.setHorizontalGroup(
+					panel9Layout.createParallelGroup()
+						.addGroup(panel9Layout.createSequentialGroup()
+							.addGroup(panel9Layout.createParallelGroup()
+								.addComponent(lostSingalBtn)
+								.addGroup(panel9Layout.createSequentialGroup()
+									.addComponent(button13)
+									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+									.addComponent(button14)))
+							.addGap(0, 6, Short.MAX_VALUE))
+				);
+				panel9Layout.setVerticalGroup(
+					panel9Layout.createParallelGroup()
+						.addGroup(panel9Layout.createSequentialGroup()
+							.addContainerGap(12, Short.MAX_VALUE)
+							.addComponent(lostSingalBtn)
+							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+							.addGroup(panel9Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+								.addComponent(button13)
+								.addComponent(button14)))
+				);
+			}
 
 			GroupLayout controlPanelLayout = new GroupLayout(controlPanel);
 			controlPanel.setLayout(controlPanelLayout);
 			controlPanelLayout.setHorizontalGroup(
 				controlPanelLayout.createParallelGroup()
 					.addGroup(controlPanelLayout.createSequentialGroup()
+						.addContainerGap()
 						.addGroup(controlPanelLayout.createParallelGroup()
 							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(controlPanelLayout.createParallelGroup()
-									.addGroup(controlPanelLayout.createSequentialGroup()
-										.addComponent(lostPowerBtn)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button15))
-									.addGroup(controlPanelLayout.createSequentialGroup()
-										.addComponent(button6)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button7))))
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addContainerGap()
 								.addComponent(label1)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(timePanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(button1)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(button2)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(button12)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-								.addComponent(lostPowerBtn2)
+								.addGap(6, 6, 6)
+								.addGroup(controlPanelLayout.createParallelGroup()
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addGroup(controlPanelLayout.createParallelGroup()
+											.addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(panel6, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(panel5, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+										.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+											.addComponent(panel7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addComponent(panel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addComponent(panel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(panel9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(controlPanelLayout.createParallelGroup()
-									.addGroup(controlPanelLayout.createSequentialGroup()
-										.addComponent(button10)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button11)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button9))
-									.addGroup(controlPanelLayout.createSequentialGroup()
-										.addComponent(button3)
-										.addGap(12, 12, 12)
-										.addComponent(button4)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button5))))
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(controlPanelLayout.createParallelGroup()
-									.addGroup(controlPanelLayout.createSequentialGroup()
-										.addComponent(lostSingalBtn)
-										.addGap(12, 12, 12)
-										.addComponent(button13)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button14))
-									.addGroup(controlPanelLayout.createSequentialGroup()
-										.addComponent(button16)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button17)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(button18)))))
-						.addContainerGap(50, Short.MAX_VALUE))
+								.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addGap(24, 24, 24))))
 			);
-			controlPanelLayout.linkSize(SwingConstants.HORIZONTAL, new Component[] {button3, button4, button5, button7});
 			controlPanelLayout.setVerticalGroup(
 				controlPanelLayout.createParallelGroup()
 					.addGroup(controlPanelLayout.createSequentialGroup()
 						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
 							.addComponent(timePanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addComponent(label1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(controlPanelLayout.createParallelGroup()
 							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addGap(8, 8, 8)
-								.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-									.addComponent(button1)
-									.addComponent(button2)
-									.addComponent(button12)
-									.addComponent(lostPowerBtn2)))
+								.addGroup(controlPanelLayout.createParallelGroup()
+									.addGroup(controlPanelLayout.createSequentialGroup()
+										.addGap(2, 2, 2)
+										.addComponent(panel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+									.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(panel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addComponent(panel5, GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE)
 							.addGroup(controlPanelLayout.createSequentialGroup()
+								.addComponent(panel4, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(separator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addGap(10, 10, 10)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(button10)
-							.addComponent(button11)
-							.addComponent(button9))
-						.addGap(12, 12, 12)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(button3)
-							.addComponent(button4)
-							.addComponent(button5))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(button6)
-							.addComponent(button7))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(lostPowerBtn)
-							.addComponent(button15))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-						.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-							.addComponent(button16)
-							.addComponent(button17)
-							.addComponent(button18))
-						.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addComponent(panel7, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addGroup(controlPanelLayout.createParallelGroup()
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addGap(0, 0, Short.MAX_VALUE)
-								.addGroup(controlPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-									.addComponent(button13)
-									.addComponent(button14)))
-							.addGroup(controlPanelLayout.createSequentialGroup()
-								.addComponent(lostSingalBtn)
-								.addGap(0, 0, Short.MAX_VALUE))))
+							.addComponent(panel8, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(panel9, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap())
 			);
 		}
+
+		//======== scrollPane1 ========
+		{
+			scrollPane1.setViewportView(logList);
+		}
+
+		//---- label30 ----
+		label30.setText("\u65e5\u5fd7\u8bb0\u5f55");
 
 		//======== panel2 ========
 		{
@@ -784,17 +954,9 @@ public class MainForm extends JPanel {
 						.addGroup(panel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 							.addComponent(label29)
 							.addComponent(atbLabel))
-						.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addContainerGap(147, Short.MAX_VALUE))
 			);
 		}
-
-		//======== scrollPane1 ========
-		{
-			scrollPane1.setViewportView(logList);
-		}
-
-		//---- label30 ----
-		label30.setText("\u65e5\u5fd7\u8bb0\u5f55");
 
 		GroupLayout layout = new GroupLayout(this);
 		setLayout(layout);
@@ -802,70 +964,78 @@ public class MainForm extends JPanel {
 			layout.createParallelGroup()
 				.addGroup(layout.createSequentialGroup()
 					.addGroup(layout.createParallelGroup()
-						.addGroup(layout.createSequentialGroup()
-							.addGap(15, 15, 15)
-							.addGroup(layout.createParallelGroup()
-								.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 507, GroupLayout.PREFERRED_SIZE)
-								.addComponent(label30)))
+						.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addGroup(layout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18, 18, 18)
-					.addGroup(layout.createParallelGroup()
-						.addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addComponent(label30))
 						.addGroup(layout.createSequentialGroup()
-							.addGap(18, 18, 18)
-							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(59, Short.MAX_VALUE))
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 491, GroupLayout.PREFERRED_SIZE)
+							.addGap(74, 74, 74)))
+					.addGroup(layout.createParallelGroup()
+						.addGroup(layout.createSequentialGroup()
+							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+						.addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+							.addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+							.addGap(80, 80, 80))))
 		);
 		layout.setVerticalGroup(
 			layout.createParallelGroup()
 				.addGroup(layout.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(layout.createParallelGroup()
+					.addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
 						.addGroup(layout.createSequentialGroup()
 							.addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addGap(79, 79, 79)
-							.addComponent(panel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGap(33, 33, 33)
+							.addComponent(panel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 						.addGroup(layout.createSequentialGroup()
-							.addGap(0, 0, Short.MAX_VALUE)
 							.addComponent(controlPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 							.addComponent(label30, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)
 							.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
-							.addGap(16, 16, 16))))
+							.addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 215, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(23, Short.MAX_VALUE))
 		);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	// Generated using JFormDesigner Evaluation license - Qings Yo
+	// Generated using JFormDesigner Evaluation license - qs
 	private JPanel controlPanel;
-	private JButton button1;
-	private JButton button2;
-	private JButton button3;
-	private JButton button4;
-	private JButton button5;
-	private JButton button7;
-	private JButton button9;
-	private JButton button10;
-	private JButton button11;
 	private JLabel label1;
 	private TimePanel timePanel1;
 	private JSeparator separator1;
+	private JPanel panel1;
+	private JButton button1;
+	private JButton button2;
+	private JPanel panel4;
 	private JButton button12;
-	private JButton lostSingalBtn;
-	private JButton button13;
-	private JButton button14;
-	private JButton lostPowerBtn;
-	private JButton button15;
+	private JButton lostPowerBtn2;
+	private JPanel panel5;
+	private JButton button3;
+	private JButton button4;
+	private JButton button6;
+	private JButton button7;
+	private JButton button5;
+	private JPanel panel6;
+	private JButton button10;
+	private JButton button11;
+	private JButton button9;
+	private JPanel panel7;
 	private JButton button16;
 	private JButton button17;
 	private JButton button18;
-	private JButton lostPowerBtn2;
-	private JButton button6;
+	private JPanel panel8;
+	private JButton lostPowerBtn;
+	private JButton button15;
+	private JPanel panel9;
+	private JButton lostSingalBtn;
+	private JButton button13;
+	private JButton button14;
+	private JScrollPane scrollPane1;
+	private JList logList;
+	private JLabel label30;
 	private JPanel panel2;
 	private JLabel label6;
 	private JLabel brakingDistance;
@@ -900,8 +1070,5 @@ public class MainForm extends JPanel {
 	private JLabel iatpLabel;
 	private JLabel rmLabel;
 	private JLabel atbLabel;
-	private JScrollPane scrollPane1;
-	private JList logList;
-	private JLabel label30;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 }
